@@ -1,30 +1,69 @@
+"use client";
 import Image from "next/image";
 import { Suspense } from "react";
+import { motion } from "framer-motion";
+// import Project from "@/components/project1";
+// import Blog from "@/components/blog";
+import Contact from "@/components/contact";
+import Link from "next/link";
+import Loading from "@/components/loading";
+import Footer from "@/components/footer";
+import Hero from "@/components/hero";
+import Expertise from "@/components/expertise";
+import Navbar from "@/components/navbar";
+import Project from "@/components/project";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start p-16">
-      <div className="w-full max-w-6xl items-center justify-between font-mono text-sm lg:flex">
-        <p>HOME</p>
-        <p>ABOUT</p>
-        <p>PROJECTS</p>
-        <p>CONTACT</p>
-      </div>
-      <div className="flex flex-col absolute h-5/6 justify-center items-center m-0">
-        <div className="text-left ">
-          <div className="p-5">
-            <p className="text-6xl space-mono-bold leading-loose">
-              Hello!, I&apos;m Supaporn
+    <motion.div
+      className="h-screen"
+      initial={{ x: "-900vh" }}
+      animate={{ x: "0%" }}
+      transition={{ duration: 1 }}
+    >
+      <section id="Home">
+        <Navbar />
+        <Hero />
+      </section>
+      <section id="Expertise">
+        <Expertise />
+      </section>
+      <section id="Projects">
+        <Project />
+      </section>
+      {/* <Project /> */}
+      {/* <section id="Projects">Projects</section> */}
+      <section id="Contact">
+        <Contact />
+      </section>
+   
+      {/* <div className="h-[calc(100vh-6rem)] flex flex-col px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 bg-home">
+        <div className="h-3/4 flex flex-col gap-8 items-center justify-center">
+          <div className="w-9/12 md:w-9/12 lg:w-9/12">
+            <h1 className="space-mono-bold text-4xl md:text-6xl hero ">
+              Hello!, I&apos;m Supaporn.
+              <br />A Full Stack Developer.
+            </h1>
+            <hr className="mt-4 hr-hero-style" />
+            <p className="text:xl md:text-2xl hero mt-4">
+              <b>Bringing ideas to life as tangible products is my passion.</b>
+              <br />
+              skilled in web development and design,I deliver high-quality
+              projects that combine functionality with aesthetics.
             </p>
-            <p className="text-6xl space-mono-bold">A Software Engineer</p>
-          </div>
-          <div className="leading-6 p-5">
-            <p className="max-w-lg space-mono-regular">
-              I thrive on transforming challenging concepts into elegant,
-              practical solutions through meticulous coding and design.
-            </p>
+            <div className="flex gap-8 mt-8 ">
+              <button className="p-4 rounded-lg ring-1 ring-black button-hero text-white">
+                My Archive
+              </button>
+              <button className="p-4 rounded-lg ring-1 ring-black">
+                My Resume
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </div> */}
+      {/* <Expertise /> */}
+      {/* <Project /> */}
+    </motion.div>
   );
 }
