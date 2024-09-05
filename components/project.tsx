@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import ImageSlider from "@/components/slidebar";
 const items = [
   {
     id: 1,
@@ -67,7 +68,8 @@ const Project = () => {
         <div className="mt-12 text-5xl md:text-7xl font-bold leading-tight">
           My Archives
         </div>
-        <div className="flex justify-evenly w-full mt-16 px-40 border-2">
+        <div className="flex justify-evenly w-full mt-16 px-20 md:px-40">
+          <ImageSlider />
           {/* <div className="text-left-contact flex flex-col flex-1 basis-3/5 	">
             <Image
               src="https://images.pexels.com/photos/14040245/pexels-photo-14040245.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"

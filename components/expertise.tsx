@@ -159,11 +159,11 @@ const Expertise = () => {
             </div>
             {toggle ? (
               <>
-                <h1 className="mt-5 mb-5 text-2xl font-light">My skills</h1>
+                <h1 className="mt-5 mb-5 text-4xl font-bold ">My skills</h1>
               </>
             ) : (
               <>
-                <h1 className="mt-5 mb-5 text-2xl font-light">My Tools</h1>
+                <h1 className="mt-5 mb-5 text-4xl font-bold">My Tools</h1>
               </>
             )}
 

@@ -20,8 +20,11 @@ html{
 section{
   height: 100vh;
   scroll-snap-align: center;
-
 }
+
+/* body::-webkit-scrollbar {
+  display: none;
+} */
 
 /* section > div {
   width: 300px;
@@ -499,9 +502,21 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   .child{
     padding: 2rem;
   }
-
+  /* overflow-y: hidden; */
+  overflow-x: hidden; 
 }
-
+.scroll-container::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+.scroll-container-slide{
+  overflow: scroll;
+  height: 270px; 
+  width: 100%;
+  overflow-x: hidden; 
+}
+.scroll-container-slide::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
 .toggle-text{
   background-color: transparent;
 }
