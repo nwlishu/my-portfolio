@@ -106,7 +106,24 @@ const Expertise = () => {
     },
   ];
 
-  const [toggle, setToggle] = useState<boolean>(false);
+  const fadeInAnimationsVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.05 * index,
+        },
+      };
+    },
+  };
+
+
+  const [toggle, setToggle] = useState<boolean>(true);
   // console.log("Toggle: ", toggle);
 
   return (
@@ -177,12 +194,17 @@ const Expertise = () => {
                 <div className="flex micro-card justify-center">
                   {toggle ? (
                     <>
-                      {skills.map((item) => (
+                      {skills.map((item, index) => (
                         <>
                           <motion.div
                             className="flex flex-col items-center bg-white skill-card subcard"
                             key={item.name}
                             whileHover={{ scale: 1.1 }}
+                            variants={fadeInAnimationsVariants}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true }}
+                            custom={index}
                           >
                             <Image
                               src={item.image}
@@ -200,12 +222,17 @@ const Expertise = () => {
                     </>
                   ) : (
                     <>
-                      {tools.map((item) => (
+                      {tools.map((item, index) => (
                         <>
                           <motion.div
                             className="flex flex-col items-center bg-white skill-card subcard"
                             key={item.name}
                             whileHover={{ scale: 1.1 }}
+                            variants={fadeInAnimationsVariants}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ once: true }}
+                            custom={index}
                           >
                             <Image
                               src={item.image}

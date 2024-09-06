@@ -23,7 +23,7 @@ const images: ImageData[] = [
   },
   {
     src: image3,
-    title: "Personal FInance1",
+    title: "AI security",
     desc: "descript personal finenace1",
   },
   {
@@ -79,7 +79,7 @@ export default function ImageSlider(): JSX.Element {
 
   return (
     <div className="relative w-full mx-auto mt-4">
-      <motion.div className="flex flex-col md:flex-row justify-center items-center relative h-[460px]  mx-12 group ">
+      <motion.div className="flex flex-col md:flex-row justify-center items-center  h-[460px]  mx-12 group ">
         <div className="flex-1">
           <Image
             src={images[currentIndex].src}

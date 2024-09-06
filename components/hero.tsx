@@ -31,14 +31,61 @@ const hero = () => {
       className: "text-center text-[40px] md:text-5xl lg:text-6xl",
     },
   ];
+  const list = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+      };
+    },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        when: "afterChildren", // Wait for parent animation to complete first
+        staggerChildren: 3, // Optional: Delay between child animations
+        duration: 1.5, // Duration for the parent animation
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: "100vh", // Initial position for the parent
+    },
+  };
+  const fadeInHomeVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+        // transition: {
+        //   delay: 0.05 * index,
+        // },
+      };
+    },
+  };
   return (
     <div className="hero-section">
       <div className="flex flex-col justify-evenly ">
         <div className="p-2">
           {/* <p className="first-text-hero font-bold leading-tight">Hello,</p> */}
-          <p className="second-text-hero text-6xl md:text-8xl font-bold leading-tight">
+          <motion.p
+            className="second-text-hero text-6xl md:text-8xl font-bold leading-tight"
+            initial="hidden"
+            animate="visible"
+            variants={list}
+            // whileInView="animate"
+            // viewport={{ once: true }}
+          >
             Hello, I&apos;m Supaporn.
-          </p>
+          </motion.p>
           <p className="text-5xl md:text-7xl font-bold leading-tight">
             A Software Engineer
           </p>
@@ -52,7 +99,12 @@ const hero = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          <motion.button className="button-home py-2 px-9" whileHover={{scale:1.1}}>My resume</motion.button>
+          <motion.button
+            className="button-home py-2 px-9"
+            whileHover={{ scale: 1.1 }}
+          >
+            My resume
+          </motion.button>
         </div>
       </div>
     </div>

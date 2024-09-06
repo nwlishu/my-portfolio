@@ -10,11 +10,15 @@
   font-family: "Trispace", sans-serif;
   color: #272727;
   background-color: #F9F9EC;
+  scroll-behavior: smooth;
 }
  
 html{ 
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+}
+html:focus-within{
+  scroll-behavior: smooth !important;
 }
 
 section{
