@@ -28,7 +28,7 @@ const images: ImageData[] = [
   },
   {
     src: image3,
-    title: "Personal FInance2",
+    title: "Factory website",
     desc: "descript personal finenace2",
   },
 ];
@@ -51,21 +51,6 @@ export default function ImageSlider(): JSX.Element {
   const nextSlide = (): void => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
-
-  // useEffect hook to handle automatic slide transition
-  //   useEffect(() => {
-  //     // Start interval for automatic slide change if not hovered
-  //     if (!isHovered) {
-  //       const interval = setInterval(() => {
-  //         nextSlide();
-  //       }, 3000);
-
-  //       // Cleanup the interval on component unmount
-  //       return () => {
-  //         clearInterval(interval);
-  //       };
-  //     }
-  //   }, [isHovered]);
 
   // Handle mouse over event
   const handleMouseOver = (): void => {
@@ -110,12 +95,13 @@ export default function ImageSlider(): JSX.Element {
       >
         <ChevronLeft className="text-gray-400 group-hover:text-white" />
       </button>
-      <button
+      <motion.button
         className="absolute right-0 top-1/2 transform h-[459px] rounded-xl hover:bg-[#F9F9EC] mx-1 -mt-[10px] -translate-y-1/2  text-white p-2 group"
         onClick={nextSlide}
+        // whileHover={{ scale: 1.1 }}
       >
         <ChevronRight className="text-gray-400 group-hover:text-white" />
-      </button>
+      </motion.button>
       <div className="flex justify-center mt-4">
         {images.map((_, index) => (
           <div

@@ -56,7 +56,8 @@ const hero = () => {
       y: "100vh", // Initial position for the parent
     },
   };
-  const fadeInHomeVariants = {
+
+  const list1 = {
     initial: {
       opacity: 0,
       y: 100,
@@ -65,10 +66,72 @@ const hero = () => {
       return {
         opacity: 1,
         y: 0,
-        // transition: {
-        //   delay: 0.05 * index,
-        // },
       };
+    },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        when: "afterChildren", // Wait for parent animation to complete first
+        staggerChildren: 4, // Optional: Delay between child animations
+        duration: 1.6, // Duration for the parent animation
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: "100vh", // Initial position for the parent
+    },
+  };
+
+  const list2 = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+      };
+    },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        when: "afterChildren", // Wait for parent animation to complete first
+        staggerChildren: 4, // Optional: Delay between child animations
+        duration: 1.7, // Duration for the parent animation
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: "100vh", // Initial position for the parent
+    },
+  };
+
+  const list3 = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+      };
+    },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        when: "afterChildren", // Wait for parent animation to complete first
+        staggerChildren: 4, // Optional: Delay between child animations
+        duration: 1.8, // Duration for the parent animation
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: "100vh", // Initial position for the parent
     },
   };
   return (
@@ -86,26 +149,37 @@ const hero = () => {
           >
             Hello, I&apos;m Supaporn.
           </motion.p>
-          <p className="text-5xl md:text-7xl font-bold leading-tight">
+          <motion.p
+            className="text-5xl md:text-7xl font-bold leading-tight"
+            initial="hidden"
+            animate="visible"
+            variants={list1}
+          >
             A Software Engineer
-          </p>
+          </motion.p>
           <br />
-          <p className="text-base md:text-xl leading-tight font-light">
+          <motion.p className="text-base md:text-xl leading-tight font-light"  initial="hidden"
+            animate="visible"
+            variants={list2}>
             Bringing ideas to life as tangible products is my passion.
-          </p>
-          <p className="text-base md:text-xl  leading-tight font-light">
+          </motion.p>
+          <motion.p className="text-base md:text-xl  leading-tight font-light" initial="hidden"
+            animate="visible"
+            variants={list2}>
             skilled in web development and design,I deliver high-quality
             projects that combine functionality with aesthetics.
-          </p>
+          </motion.p>
         </div>
-        <div className="flex justify-center">
+        <motion.div className="flex justify-center" initial="hidden"
+            animate="visible"
+            variants={list3}>
           <motion.button
             className="button-home py-2 px-9"
             whileHover={{ scale: 1.1 }}
           >
             My resume
           </motion.button>
-        </div>
+        </motion.div>
       </div>
     </div>
     // <div className="pd-20 pt-36 min-h-screen">
