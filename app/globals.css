@@ -500,7 +500,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
 .scroll-container{
   /* position: fixed; */
   overflow: scroll;
-  height: 450px; 
+  height: 430px; 
   width: 100%;
   border: #000;
   .child{
@@ -527,4 +527,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
 
 .toggle-button-style{
   background-color:#1820EF
+}
+.toggle-text{
+  color:white;
 }

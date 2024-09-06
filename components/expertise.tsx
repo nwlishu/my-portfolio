@@ -122,7 +122,6 @@ const Expertise = () => {
     },
   };
 
-
   const [toggle, setToggle] = useState<boolean>(true);
   // console.log("Toggle: ", toggle);
 
@@ -134,54 +133,67 @@ const Expertise = () => {
         </div>
         <div className="flex flex-col  justify-evenly w-full mt-16 px-20 md:px-40">
           <div className="text-left-contact flex flex-col flex-1 basis-2/5">
-            <div
-              onClick={() => setToggle(!toggle)}
-              className={`flex h-8 w-20 cursor-pointer rounded-full border border-black bg-white  ${
-                toggle ? "justify-start bg-white" : "justify-end bg-black"
-              } p-[1px]  `}
-            >
+            <div className="flex justify-between items-center">
               {toggle ? (
-                // <p className="items-end">tools</p>
-                <></>
+                <>
+                  <h1 className="mt-5 mb-5 text-4xl font-bold ">My Skills</h1>
+                </>
               ) : (
-                // <p className="">skills</p>
-                <></>
+                <>
+                  <h1 className="mt-5 mb-5 text-4xl font-bold">My Tools</h1>
+                  {/* <p>
+                    I work with a wide range of development tools and
+                    technologies. For front-end, I utilize frameworks like React
+                    and Vue.js for crafting dynamic user interfaces. On the
+                    back-end, I leverage Node.js, Python, and databases like
+                    MongoDB and SQL to build robust APIs and server-side logic.
+                    In AI development, I apply tools such as TensorFlow,
+                    PyTorch, and various data science libraries to build
+                    intelligent applications and models. These tools empower me
+                    to deliver high-quality, innovative solutions.
+                  </p> */}
+                </>
               )}
-              {/* <p className="toggle-text">skills</p> */}
-              <motion.div
-                className={`h-7 w-10 rounded-full z-1000 ${
-                  toggle ? "toggle-button-style" : "toggle-button-style"
-                }`}
-                layout
-                transition={{ type: "spring", stiffness: 700, damping: 30 }}
+              <div
+                onClick={() => setToggle(!toggle)}
+                className={`flex h-8 w-28 cursor-pointer rounded-full border border-black bg-white  ${
+                  toggle ? "justify-start bg-white" : "justify-end bg-black"
+                } p-[1px]  `}
               >
-                {/* {toggle ? (
-                  <p
-                    className={`toggle-text ${
-                      toggle ? "text-white" : "text-black"
-                    }`}
-                  >
-                    skills
-                  </p>
-                ) : (
-                  <p
-                    className={`toggle-text ${
-                      toggle ? "text-white" : "text-white"
-                    }`}
-                  >
-                    tools
-                  </p>
-                )} */}
-              </motion.div>
+                <motion.div
+                  className={`h-7 w-14 rounded-full z-1000 ${
+                    toggle ? "toggle-button-style" : "toggle-button-style"
+                  }`}
+                  layout
+                  transition={{ type: "spring", stiffness: 700, damping: 30 }}
+                >
+                  {toggle ? (
+                    <>
+                      <p className="toggle-text text-center toggle-text  font-bold">
+                        skills
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="toggle-text text-center toggle-text font-bold">
+                        Tools
+                      </p>
+                    </>
+                  )}
+                </motion.div>
+              </div>
             </div>
             {toggle ? (
               <>
-                <h1 className="mt-5 mb-5 text-4xl font-bold ">My skills</h1>
+                <p className="font-light">
+                  I specialize in full-stack development, creating responsive
+                  web applications with expertise in front-end and back-end
+                  technologies. I also integrate AI solutions, including machine
+                  learning and automation, for enhanced functionality.
+                </p>
               </>
             ) : (
-              <>
-                <h1 className="mt-5 mb-5 text-4xl font-bold">My Tools</h1>
-              </>
+              <></>
             )}
 
             {/* <h1 className="text-xl font-light">
