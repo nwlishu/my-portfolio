@@ -116,7 +116,7 @@ const Expertise = () => {
         opacity: 1,
         y: 0,
         transition: {
-          delay: 0.05 * index,
+          delay: 0.05,
         },
       };
     },
@@ -124,13 +124,44 @@ const Expertise = () => {
 
   const [toggle, setToggle] = useState<boolean>(true);
   // console.log("Toggle: ", toggle);
+  const list = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+      };
+    },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        when: "afterChildren", // Wait for parent animation to complete first
+        staggerChildren: 3, // Optional: Delay between child animations
+        duration: 1.5, // Duration for the parent animation
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: "100vh", // Initial position for the parent
+    },
+  };
 
   return (
     <>
-      <div className="expertise-section">
-        <div className="mt-14 text-5xl md:text-7xl font-bold leading-tight">
+      <motion.div className="expertise-section">
+        <motion.div
+          className="mt-14 text-5xl md:text-7xl font-bold leading-tight"
+          variants={fadeInAnimationsVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           Expertise
-        </div>
+        </motion.div>
         <div className="flex flex-col  justify-evenly w-full mt-16 px-20 md:px-40">
           <div className="text-left-contact flex flex-col flex-1 basis-2/5">
             <div className="flex justify-between items-center">
@@ -263,99 +294,10 @@ const Expertise = () => {
                   )}
                 </div>
               </div>
-              {/* <form>
-                <div className="flex flex-col">
-                  <label className="font-bold">Name</label>
-                  <input
-                    type="text"
-                    className="input-style font-light mt-3.5 file:border-2"
-                    required
-                    placeholder="Name"
-                  />
-                </div>
-                <div className="flex flex-col mt-8">
-                  <label className="font-bold">Email</label>
-                  <input
-                    type="email"
-                    className="input-style font-light mt-3.5 border-2 email-input"
-                    required
-                    placeholder="Email"
-                  />
-                  <p className="error-message">
-                    Please enter a valid e-mail address
-                  </p>
-                </div>
-                <div className="flex flex-col mt-8">
-                  <label className="font-bold">message</label>
-                  <textarea
-                    className="input-style font-light mt-3.5 border-2"
-                    rows={5}
-                    placeholder="Message"
-                  />
-                </div>
-
-                <button className="button-contact  mt-8 py-2 px-9">
-                  Submit
-                </button>
-              </form> */}
             </div>
           </div>
         </div>
-      </div>
-      {/* <div className="expertise-section">
-        <div className="mt-24 text-5xl md:text-7xl font-bold leading-tight">
-          My Skills and Tools
-        </div>
-        <div>Toggle button</div>
-        <div className="flex items-center child">
-          <div className="flex micro-card justify-center">
-            {tools.map((item) => (
-              <>
-                <div
-                  className="flex flex-col items-center bg-white skill-card"
-                  key={item.name}
-                >
-                  <Image
-                    src={item.image}
-                    className=""
-                    width={40}
-                    height={40}
-                    alt={item.name}
-                  />
-                  <span className="item-name-style">{item.name}</span>
-                </div>
-              </>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="flex flex-col expertise items-center p-36 bg-nav">
-        <div className="text-left-style-expert child">
-          <h1 className="text-7xl text-center font-extrabold ">My Expertise</h1>
-        </div>
-        <div className="flex items-center child mt-36">
-          <div className="flex micro-card justify-center">
-            {tools.map((item) => (
-              <>
-                <div
-                  className="flex flex-col items-center bg-white skill-card"
-                  key={item.name}
-                >
-                  <Image
-                    src={item.image}
-                    className=""
-                    width={40}
-                    height={40}
-                    alt={item.name}
-                  />
-                  <span className="item-name-style">{item.name}</span>
-                </div>
-              </>
-            ))}
-          </div>
-        </div>
-      </div> */}
+      </motion.div>
     </>
   );
 };

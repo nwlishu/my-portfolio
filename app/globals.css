@@ -137,13 +137,12 @@ section{
   /* animation-iteration-count: infinite; */
 }
 .button-home:hover {
-  box-shadow: #FC403E 0px 7px 20px 0px;
+  box-shadow: #FC403E 0px 2px 10px 0px;
   /* animation-name: bounce;
   animation-timing-function: ease; */
 }
 .button-contact:hover {
-  box-shadow: #FC403E 0px 7px 20px 0px;
-
+  box-shadow: #FC403E 0px 2px 10px 0px;
 }
 @keyframes bounce {
   0%   { transform: translateY(0); }
@@ -530,4 +529,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
 }
 .toggle-text{
   color:white;
+}
+.text-button-project{
+  background-color: transparent;
 }

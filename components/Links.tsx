@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 const Link = () => {
-  const items = ["Home", "Expertise", "Projects", "Contact"];
+  const items = ["Home", "About", "Expertise", "Projects", "Contact"];
 
   // Parent variants
   const variants = {

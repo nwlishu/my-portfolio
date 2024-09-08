@@ -1,14 +1,74 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+  const fadeInAnimationsVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.1,
+        },
+      };
+    },
+  };
+
+  const fadeInAnimationsHorizontalRightVariants = {
+    initial: {
+      opacity: 0,
+      x: -50,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        x: 0,
+        transition: {
+          delay: 1,
+        },
+      };
+    },
+  };
+
+  const fadeInAnimationsHorizontalLeftVariants = {
+    initial: {
+      opacity: 0,
+      x: 70,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        x: 0,
+        transition: {
+          delay: 1,
+        },
+      };
+    },
+  };
   return (
     <>
       <div className="contact-section">
-        <div className="mt-12 text-5xl md:text-7xl font-bold leading-tight">
+        <motion.div
+          className="mt-12 text-5xl md:text-7xl font-bold leading-tight"
+          variants={fadeInAnimationsVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           Contact Me
-        </div>
+        </motion.div>
         <div className="flex flex-col md:flex-row justify-evenly w-full mt-4 md:mt-16 px-10 md:px-40">
-          <div className="text-left-contact flex flex-col flex-1 basis-2/5	">
+          <motion.div
+            className="text-left-contact flex flex-col flex-1 basis-2/5	"
+            variants={fadeInAnimationsHorizontalRightVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             <div>
               <p className="font-bold">Email</p>
               <p className="font-light mt-1.5 md:mt-3.5">
@@ -70,10 +130,15 @@ const Contact = () => {
               <p className="font-bold mt-5 md:mt-14">Current Location</p>
               <p className="font-light mt-1.5 md:mt-3.5">Taipei, Taiwan</p>
             </div>
-          </div>
-          <div className="form-right-contact flex-1 basis-3/5">
+          </motion.div>
+          <motion.div className="form-right-contact flex-1 basis-3/5">
             <div className="mt-5 md:mt-0">
-              <form>
+              <motion.form
+                variants={fadeInAnimationsHorizontalLeftVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
                 <div className="flex flex-col">
                   <label className="font-bold">Name</label>
                   <input
@@ -107,9 +172,9 @@ const Contact = () => {
                 <button className="button-contact mt-4 md:mt-8 py-2 px-9">
                   Submit
                 </button>
-              </form>
+              </motion.form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

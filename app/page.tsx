@@ -7,11 +7,11 @@ import { motion } from "framer-motion";
 import Contact from "@/components/contact";
 import Link from "next/link";
 import Loading from "@/components/loading";
-import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import Expertise from "@/components/expertise";
 import Navbar from "@/components/navbar";
 import Project from "@/components/project";
+import About from "@/components/about";
 
 export default function Home() {
   const list = {
@@ -39,6 +39,9 @@ export default function Home() {
       <section id="Home">
         <Navbar />
         <Hero />
+      </section>
+      <section id="About">
+        <About />
       </section>
       <section id="Expertise">
         <Expertise />

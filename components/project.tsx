@@ -24,17 +24,60 @@ interface Item {
   desc: string;
 }
 
+const fadeInAnimationsVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: (index: number) => {
+    return {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.05,
+      },
+    };
+  },
+};
+const fadeInAnimationsVariants1 = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: (index: number) => {
+    return {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.5,
+      },
+    };
+  },
+};
+
 const Project = () => {
   const ref = useRef();
   return (
     <>
       <div className="contact-section">
-        <div className="mt-12 text-5xl md:text-7xl font-bold leading-tight">
+        <motion.div
+          className="mt-12 text-5xl md:text-7xl font-bold leading-tight"
+          variants={fadeInAnimationsVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           My Archives
-        </div>
-        <div className="flex justify-evenly w-full mt-16 px-20 md:px-40">
+        </motion.div>
+        <motion.div
+          className="flex justify-evenly w-full mt-16 px-20 md:px-40"
+          variants={fadeInAnimationsVariants1}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           <ImageSlider />
-        </div>
+        </motion.div>
       </div>
     </>
   );
