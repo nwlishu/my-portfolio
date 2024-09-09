@@ -177,6 +177,9 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+      <div className="made-in-wales">
+        <p>2024</p>
+      </div>
     </>
   );
 };

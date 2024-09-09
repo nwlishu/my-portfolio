@@ -116,7 +116,7 @@ const Expertise = () => {
         opacity: 1,
         y: 0,
         transition: {
-          delay: 0.05,
+          delay: 0.05 * index,
         },
       };
     },
@@ -200,13 +200,13 @@ const Expertise = () => {
                 >
                   {toggle ? (
                     <>
-                      <p className="toggle-text text-center toggle-text  font-bold">
+                      <p className="toggle-text text-center toggle-text  ">
                         skills
                       </p>
                     </>
                   ) : (
                     <>
-                      <p className="toggle-text text-center toggle-text font-bold">
+                      <p className="toggle-text text-center toggle-text">
                         Tools
                       </p>
                     </>
