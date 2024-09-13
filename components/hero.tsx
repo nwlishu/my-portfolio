@@ -136,11 +136,11 @@ const hero = () => {
   };
   return (
     <div className="hero-section">
-      <div className="flex flex-col justify-evenly ">
+      <div className="flex flex-col justify-evenly p-28 ">
         <div className="p-2">
           {/* <p className="first-text-hero font-bold leading-tight">Hello,</p> */}
           <motion.p
-            className="second-text-hero text-6xl md:text-8xl font-bold leading-tight"
+            className="second-text-hero text-7xl md:text-8xl font-bold leading-tight"
             initial="hidden"
             animate="visible"
             variants={list}
@@ -158,26 +158,40 @@ const hero = () => {
             A Software Engineer
           </motion.p>
           <br />
-          <motion.p className="text-base md:text-xl leading-tight font-light"  initial="hidden"
+          <motion.p
+            className="text-base md:text-xl leading-tight font-light"
+            initial="hidden"
             animate="visible"
-            variants={list2}>
+            variants={list2}
+          >
             Bringing ideas to life as tangible products is my passion.
           </motion.p>
-          <motion.p className="text-base md:text-xl  leading-tight font-light" initial="hidden"
+          <motion.p
+            className="text-base md:text-xl  leading-tight font-light"
+            initial="hidden"
             animate="visible"
-            variants={list2}>
+            variants={list2}
+          >
             skilled in web development and design,I deliver high-quality
             projects that combine functionality with aesthetics.
           </motion.p>
         </div>
-        <motion.div className="flex justify-center" initial="hidden"
-            animate="visible"
-            variants={list3}>
+        <motion.div
+          className="flex justify-start mt-12 p-2"
+          initial="hidden"
+          animate="visible"
+          variants={list3}
+        >
           <motion.button
             className="button-home py-2 px-9"
             whileHover={{ scale: 1.1 }}
           >
-            My resume
+            {/* <a href="/books/a-great-book.pdf" target="_blank">
+ */}
+            <a>
+               Get My Resume
+            </a>
+           
           </motion.button>
         </motion.div>
       </div>

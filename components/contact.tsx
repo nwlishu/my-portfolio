@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const Contact = () => {
+const Contact = (activeSection: any) => {
   const fadeInAnimationsVariants = {
     initial: {
       opacity: 0,
@@ -28,7 +28,7 @@ const Contact = () => {
         opacity: 1,
         x: 0,
         transition: {
-          delay: 1,
+          delay: 0.5,
         },
       };
     },
@@ -44,7 +44,7 @@ const Contact = () => {
         opacity: 1,
         x: 0,
         transition: {
-          delay: 1,
+          delay: 0.5,
         },
       };
     },
@@ -70,6 +70,10 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <div>
+              {/* <p className="text-base font-light">
+                Feel free to reach out if you have any questions, need further
+                information, or would like to discuss potential collaborations.{" "}
+              </p> */}
               <p className="font-bold">Email</p>
               <p className="font-light mt-1.5 md:mt-3.5">
                 Supapornnguanprasert@gmail.com
@@ -177,9 +181,26 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
-      <div className="made-in-wales">
-        <p>2024</p>
+
+      <div
+        className={`${
+          activeSection.activeSection === "Contact" ? "block" : "hidden"
+        } copyRight`}
+      >
+        <p>Handcrafted by me © 2024.</p>
+        <p>
+          Design prototype is available on{" "}
+          <a
+            rel="noopener noreferrer"
+            aria-label="Figma draft"
+            href="https://www.figma.com/file/K5yX0EjvrIfGmVtOCFuy9U/Portfolio-Minimal?node-id=0%3A1"
+            target="_blank"
+          >
+            Figma
+          </a>
+        </p>
       </div>
+ 
     </>
   );
 };

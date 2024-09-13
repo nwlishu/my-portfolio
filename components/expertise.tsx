@@ -196,7 +196,7 @@ const Expertise = () => {
                     toggle ? "toggle-button-style" : "toggle-button-style"
                   }`}
                   layout
-                  transition={{ type: "spring", stiffness: 700, damping: 30 }}
+                  transition={{ type: "spring", stiffness: 900, damping: 90 }}
                 >
                   {toggle ? (
                     <>
@@ -216,7 +216,7 @@ const Expertise = () => {
             </div>
             {toggle ? (
               <>
-                <p className="font-light">
+                <p className="font-light text-base	">
                   I specialize in full-stack development, creating responsive
                   web applications with expertise in front-end and back-end
                   technologies. I also integrate AI solutions, including machine
@@ -256,9 +256,9 @@ const Expertise = () => {
                               height={30}
                               alt={item.name}
                             />
-                            <span className="item-name-style font-light">
+                            <p className="item-name-style font-light text-base	">
                               {item.name}
-                            </span>
+                            </p>
                           </motion.div>
                         </>
                       ))}
