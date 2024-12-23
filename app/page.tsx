@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Suspense } from "react";
+import { Suspense, useCallback } from "react";
 import { motion } from "framer-motion";
 // import Project from "@/components/project1";
 // import Blog from "@/components/blog";
@@ -14,11 +14,12 @@ import Navbar from "@/components/navbar";
 import Project from "@/components/project";
 import About from "@/components/about";
 
-import { useLocation } from "react-router-dom";
-
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
+  const sections = ["Home", "About", "Expertise", "Projects", "Contact"];
+  console.log(activeSection);
 
+  // Smooth scroll to active section
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -66,33 +67,60 @@ export default function Home() {
   };
 
   return (
-    <div className="snap-none md:snap-y snap-mandatory overflow-y-scroll h-screen">
+    // <div className="snap-none md:snap-y snap-mandatory overflow-y-scroll h-screen initial-back">
+
+    <div className=" h-screen initial-back">
       <motion.div
-        className="h-screen"
-        initial="hidden"
-        animate="visible"
-        variants={list}
+        className="h-screen second-back snap-y snap-mandatory"
+        // initial="hidden"
+        // animate="visible"
+        // variants={list}
+        initial={{ height: "-20vh" }}
+        animate={{ height: "100vh" }}
+        transition={{
+          duration: 1,
+          ease: "easeIn",
+        }}
       >
-        <section id="Home" className="snap-start h-screen">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.1, delay: 0.6 }}
+        >
           <Navbar activeSection={activeSection} />
+        </motion.div>
+        <section id="Home" className={`h-screen snap-always   `}>
           <Hero />
         </section>
-        <section id="About" className="snap-start h-screen">
-          <About />
+
+        <motion.div>
+          <section id="About" className="second-back h-screen snap-always ">
+            <About />
+          </section>
+        </motion.div>
+
+        {/* <motion.div>
+          <section id="Expertise" className="second-back h-screen ">
+            <Expertise />
+          </section>
+        </motion.div> */}
+        <section id="Projects">
+          <div className="sentinel"></div>
         </section>
-        <section id="Expertise" className="snap-start h-screen">
-          <Expertise />
+        <motion.div>
+          <section id="Projects" className="second-back snap-always ">
+            <Project />
+          </section>
+        </motion.div>
+        <section id="Projects">
+          <div className="sentinel"></div>
         </section>
-        <section id="Projects" className="snap-start h-screen">
-          <Project />
-        </section>
-        <section
-          id="Contact"
-          data-anchor="Contact"
-          className="snap-start h-screen"
-        >
-          <Contact activeSection={activeSection} />
-        </section>
+
+        <motion.div>
+          <section id="Contact" className="second-back h-screen snap-always ">
+            <Contact activeSection={activeSection} />
+          </section>
+        </motion.div>
       </motion.div>
     </div>
   );

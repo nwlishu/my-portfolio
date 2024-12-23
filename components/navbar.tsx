@@ -1,9 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import Sidebar from "./sidebar";
-import { animate, motion } from "framer-motion";
+import { animate, motion, MotionProps } from "framer-motion";
 
 const Navbar = (activeSection: any) => {
+  const arrowAnimation: MotionProps = {
+    style: { originX: "center", originY: 0 },
+    whileInView: { y: [0, 24], scale: [1, 1.4] },
+    transition: {
+      // repeat: 5,
+      repeat: Infinity,
+      repeatType: "mirror",
+      duration: 1.5,
+    },
+  };
+
   const animateSocialVariants = {
     initial: {
       opacity: 0,
@@ -84,7 +95,7 @@ const Navbar = (activeSection: any) => {
                   About
                 </a>
               </li>
-              <li className="li-nav">
+              {/* <li className="li-nav">
                 <a
                   className={`${
                     activeSection.activeSection === "Expertise"
@@ -102,7 +113,7 @@ const Navbar = (activeSection: any) => {
                   {" "}
                   Expertise
                 </a>
-              </li>
+              </li> */}
               <li className="li-nav">
                 <a
                   className={`${
@@ -182,14 +193,30 @@ const Navbar = (activeSection: any) => {
           </a>
         </motion.div>
       </motion.div>
-      <div className="bottom-section">
-        <span
+      <div
+        className={`bottom-section ${
+          activeSection.activeSection === "Contact" ? "" : "line-scroll"
+        }`}
+      >
+        <motion.span
+          {...arrowAnimation}
           className={`${
-            activeSection.activeSection === "Contact" ? "hidden" : "block"
+            activeSection.activeSection === "Contact"
+              ? // "About" ||
+                // "Project" ||
+                // "Expertise"
+                "hidden"
+              : "block"
           }`}
         >
-          SCROLL
-        </span>
+          <Image
+            src="/uiw--down-circle.png"
+            className=""
+            width={20}
+            height={20}
+            alt="down"
+          />
+        </motion.span>
       </div>
     </>
   );

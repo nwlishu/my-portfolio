@@ -12,7 +12,7 @@ const Contact = (activeSection: any) => {
         opacity: 1,
         y: 0,
         transition: {
-          delay: 0.1,
+          delay: 0.2,
         },
       };
     },
@@ -53,11 +53,11 @@ const Contact = (activeSection: any) => {
     <>
       <div className="contact-section">
         <motion.div
-          className="mt-12 text-5xl md:text-7xl font-bold leading-tight"
+          className="mt-24 text-5xl md:text-7xl font-bold leading-tight"
           variants={fadeInAnimationsVariants}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           Contact Me
         </motion.div>
@@ -79,10 +79,9 @@ const Contact = (activeSection: any) => {
                 Supapornnguanprasert@gmail.com
               </p>
             </div>
-            <div>
+            {/* <div>
               <p className="font-bold mt-5 md:mt-14">Social Media</p>
               <div className="flex mt-1.5 md:mt-3.5 gap-4">
-                {/* skill-icons--instagram */}
                 <a href="#">
                   <Image
                     src="/devicon--github.png"
@@ -110,15 +109,6 @@ const Contact = (activeSection: any) => {
                     alt="instagram"
                   />
                 </a>
-                <a href="#">
-                  <Image
-                    src="/logos--youtube-icon.png"
-                    className=""
-                    width={18}
-                    height={18}
-                    alt="instagram"
-                  />
-                </a>
                 <a>
                   <Image
                     src="/skill-icons--gmail-light.png"
@@ -129,13 +119,13 @@ const Contact = (activeSection: any) => {
                   />
                 </a>
               </div>
-            </div>
+            </div> */}
             <div>
               <p className="font-bold mt-5 md:mt-14">Current Location</p>
               <p className="font-light mt-1.5 md:mt-3.5">Taipei, Taiwan</p>
             </div>
           </motion.div>
-          <motion.div className="form-right-contact flex-1 basis-3/5">
+          {/* <motion.div className="form-right-contact flex-1 basis-3/5">
             <div className="mt-5 md:mt-0">
               <motion.form
                 variants={fadeInAnimationsHorizontalLeftVariants}
@@ -178,17 +168,17 @@ const Contact = (activeSection: any) => {
                 </button>
               </motion.form>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
 
-      <div
+      <motion.div
         className={`${
           activeSection.activeSection === "Contact" ? "block" : "hidden"
         } copyRight`}
       >
-        <p>Handcrafted by me © 2024.</p>
-        <p>
+        <motion.p>© 2024, Supaporn Nguanprasert</motion.p>
+        {/* <p>
           Design prototype is available on{" "}
           <a
             rel="noopener noreferrer"
@@ -198,9 +188,8 @@ const Contact = (activeSection: any) => {
           >
             Figma
           </a>
-        </p>
-      </div>
- 
+        </p> */}
+      </motion.div>
     </>
   );
 };

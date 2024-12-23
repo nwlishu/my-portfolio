@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import Navbar from "@/components/navbar";
 import Image from "next/image";
 import {
   motion,
@@ -12,7 +13,14 @@ import {
 const Project = () => {
   return (
     <>
-      <p>hello</p>
+      <h1>hello</h1>
+      {/* <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.1, delay: 0.6 }}
+        >
+          <Navbar activeSection={activeSection} />
+        </motion.div> */}
     </>
   );
 };

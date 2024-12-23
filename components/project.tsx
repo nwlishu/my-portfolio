@@ -8,10 +8,16 @@ import {
 } from "framer-motion";
 import Image from "next/image";
 import ImageSlider from "@/components/slidebar";
+import Aidesc from "@/components/ai";
 import { StaticImageData } from "next/image";
 import image3 from "@/public/pexels-stephen-leonardi-587681991-28133538.jpg";
+import ai from "@/public/ai_project_transparent.png";
+import finance from "@/public/finance_transparent.png";
 import useMeasure from "react-use-measure";
+import inventory from "@/public/inventory_transparent.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { sortedLastIndex } from "lodash";
+import hero_inventory from "@/public/hero_inventory.png";
 
 interface ImageData {
   src: StaticImageData;
@@ -19,22 +25,120 @@ interface ImageData {
   desc: string;
 }
 
+interface techStackDetail {
+  name: Array<string>;
+}
+interface DetailItem {
+  title: string;
+  field: string;
+  subtitle: string;
+  techStack: { [key: string]: techStackDetail };
+  detail: string;
+  motivation: string;
+  problem: string;
+  goals: Array<string>;
+  color: string;
+  hero: StaticImageData;
+  idea: string;
+}
+
 // Image data array
 const images: ImageData[] = [
   {
-    src: image3,
-    title: "Personal Finance",
-    desc: "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+    src: finance,
+    title: "Personal Investment",
+    desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
   },
+  //     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+
   {
-    src: image3,
+    src: ai,
     title: "AI security",
-    desc: "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
+    desc: "Developed an adversarial example method to protect copyright images from diffusion models.",
+  },
+  //     desc: "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
+
+  {
+    src: inventory,
+    title: "Inventory Management",
+    desc: "Developed an adversarial method to protect copyright images from generative models.",
   },
   {
-    src: image3,
-    title: "Factory website",
-    desc: "descript personal finenace2",
+    src: inventory,
+    title: "Inventory Management",
+    desc: "Developed an adversarial method to protect copyright images from generative models.",
+  },
+];
+
+const detail_item: DetailItem[] = [
+  {
+    title: "Personal Investment",
+    field: "Web Development and Machine Learning",
+    subtitle: "Web development",
+    techStack: {
+      frontend: { name: ["React.js", "Next.js"] },
+      backend: { name: [""] },
+    },
+    detail:
+      "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+    problem:
+      "I often find it difficult to keep track of my personal finances and investments. It's easy for me to lose sight of where my money is going, which sometimes leads to missed opportunities for saving or investing.",
+    goals: [
+      "My goal is to create an easy-to-use dashboard that provides insightful analytics (e.g., ROI, risk, market trends) to aid in better decision-making. This will help me make smarter choices when buying, selling, or holding investments.",
+      "I want to set specific savings goals (e.g., saving for a house, retirement, emergency fund) and use the system to track progress toward those goals. It will help me set realistic targets, automate saving, and ensure I stay on track.",
+      "A key goal is to develop a long-term strategy that aligns with my financial goals. This includes retirement planning, wealth-building, and ensuring my investments grow in line with my life plans.",
+    ],
+    motivation:
+      "My motivation to create a personal investment tool stems from a desire to achieve financial independence. I want to be more in control of my finances, reduce uncertainty, and ensure that I am making smart financial decisions. By building a tool that tracks my investments and helps me visualize my financial goals, I can make more informed decisions and optimize the returns on my investment.",
+    color: "#F5F5F7",
+    hero: hero_inventory,
+    idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
+  },
+  {
+    title: "AI security",
+    field: "AI security",
+    subtitle:
+      "Protecting the copyright image from diffusion model by using the adversarial example.",
+
+    techStack: {
+      frontend: { name: ["React.js", "Next.js"] },
+      backend: { name: [""] },
+    },
+    detail:
+      "Developed an adversarial method to protect copyright images from diffusion models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
+    problem:
+      "Generative models, particularly Stable Diffusion models, have become incredibly powerful, capable of creating highly realistic images. However, this has raised significant concerns about copyright infringement. These models can be trained or fine-tuned using copyrighted images scraped from the internet without the original owners' consent. Once fine-tuned, they can potentially be misused to generate images that closely resemble the copyrighted materials they were trained on. ",
+    goals: [
+      "Prevent Unauthorized Training: Ensure that copyrighted images cannot be effectively used to train diffusion models by introducing imperceptible perturbations.",
+    ],
+    motivation:
+      "Empower creators and businesses to safeguard their artistic and commercial works from being misused or exploited without their consent.",
+    color: "#FFFF",
+    hero: hero_inventory,
+    idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
+  },
+  {
+    title: "Inventory Management System",
+    field: "Web Development",
+    subtitle:
+      "A web-based application for real-time inventory tracking and management, built to improve operational efficiency for businesses",
+    techStack: {
+      frontend: { name: ["React.js", "Next.js"] },
+      backend: { name: [""] },
+    },
+    detail:
+      "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
+    problem:
+      "Small and medium-sized businesses often struggle with inefficient inventory management processes, leading to overstocking, stockouts, and revenue loss.",
+    goals: [
+      "Build a inventory tracking system with low-stock notifications.",
+      "Implement user-friendly features for managing stock, suppliers, and orders.",
+    ],
+    motivation:
+      "I wanted to leverage my skills in web development and system design to create a modern inventory management solution that simplifies operations, minimizes waste, and provides valuable insights.",
+    color: "#F5F5F7",
+    hero: hero_inventory,
+    idea: "An Inventory Management System automates and optimizes the process of tracking inventory throughout its lifecycle — from procurement to storage, and ultimately to sales or distribution. It ensures efficiency, reduces manual errors, and provides real-time insights for better decision-making.",
   },
 ];
 
@@ -48,7 +152,7 @@ const fadeInAnimationsVariants = {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.05,
+        delay: 0.2,
       },
     };
   },
@@ -106,19 +210,196 @@ const Project = () => {
     setIsHovered(false);
   };
 
+  // interface CardProps {
+  //   title: string;
+  //   subtitle: string;
+  //   techStack: string[];
+  //   detail: string;
+  //   color: string;
+  // }
+
   return (
     <>
-      <div className="contact-section">
-        <motion.div
-          className="mt-24 text-5xl md:text-7xl font-bold leading-tight mb-4	"
+      <div className="project-section">
+        <div className="stickyTitle">
+          <motion.div
+            variants={fadeInAnimationsVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: false }}
+          >
+            <p className=" text-5xl md:text-7xl font-bold md:leading-none mb-5 ">
+              My project
+            </p>
+          </motion.div>
+        </div>
+
+        {detail_item.map((item, index) => {
+          return (
+            <>
+              <div className="cardContainer">
+                <div
+                  style={{
+                    backgroundColor: item.color,
+                    border: `groove`,
+                  }}
+                  className="card"
+                >
+                  <p className="flex justify-end p-2 md:p-3 font-extralight text-sm md:text-base">
+                    {item.field}
+                  </p>
+                  <hr />
+                  <div className="flex flex-col md:flex-row justify-evenly items-center p-5 md:p-10">
+                    <Image
+                      className="image-project w-56	md:w-96"
+                      src={images[index].src}
+                      alt={`Slider Image ${index + 1}`}
+                      // width={350}
+                      // height={290}
+                      // style={{
+                      //   objectFit: "cover",
+                      //   width: "20em",
+                      //   height: "15em",
+                      // }}
+                    />
+                    <div>
+                      <p className="text-xl md:text-3xl font-bold pt-5">
+                        {item.title}
+                      </p>
+                      <p className="font-extralight text-sm md:text-base item-right-detail">
+                        {images[index].desc}
+                      </p>
+                      <p className="font-extralight text-sm md:text-base">
+                        <u>Tech Stack:</u>
+                      </p>
+                      {/* <ul>
+                        {item.techStack.map((techItem, index) => {
+                          return (
+                            <>
+                              <li className="font-extralight text-sm md:text-base">
+                                - {techItem}
+                              </li>
+                            </>
+                          );
+                        })}
+                      </ul> */}
+                      <motion.div className="flex justify-center button-project">
+                        <motion.button
+                          className="button-home px-5"
+                          whileHover={{ scale: 1.1 }}
+                          onClick={() => {
+                            setOpen(true), setCurrentIndex(index);
+                          }}
+                        >
+                          <div className="button-home text-sm md:text-base px-5">
+                            See more
+                          </div>
+                        </motion.button>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          );
+        })}
+
+        {/* <motion.div className="container-card">
+          <div className="card-wrapper">
+            <ul className="card-list">
+              {detail_item.map((item, index) => {
+                return (
+                  <>
+                    <li className="card-item">
+                      <div className="contrainer-card-parent">
+                        <p className="text-sm flex justify-end p-1">
+                          Ai security
+                        </p>
+                        <hr />
+                        <div className="contrainer-card">
+                          <Image
+                            className="image-project	"
+                            src={images[index].src}
+                            alt={`Slider Image ${currentIndex + 1}`}
+                            width={350}
+                            height={290}
+                            style={{
+                              objectFit: "cover",
+                              width: "300px",
+                              height: "140px",
+                            }}
+                          />
+                          <p className="text-xl font-bold pt-5">
+                            {images[index].title}
+                          </p>
+                          <p className=" font-extralight text-sm item-right-detail">
+                            {images[index].desc}
+                          </p>
+                          <motion.div className="flex justify-center button-project">
+                            <motion.button
+                              className="button-home px-5"
+                              whileHover={{ scale: 1.1 }}
+                              onClick={() => setOpen(true)}
+                            >
+                              Detail
+                            </motion.button>
+                          </motion.div>
+                        </div>
+                      </div>
+                    </li>
+                  </>
+                );
+              })}
+            </ul>
+          </div>
+        </motion.div> */}
+
+        {/* <motion.div
+          className="container-card"
           variants={fadeInAnimationsVariants}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
         >
-          My Project
-        </motion.div>
-        <div className="detail-project relative">
+          {detail_item.map((item, index) => {
+            return (
+              <>
+                <div className="project-card flex flex-col md:flex-row ">
+                  <Image
+                    className="image-project	"
+                    src={images[index].src}
+                    alt={`Slider Image ${currentIndex + 1}`}
+                    width={350}
+                    height={290}
+                    style={{
+                      objectFit: "cover",
+                      width: "350px",
+                      height: "290px",
+                    }}
+                  />
+                  <div className="desc-project">
+                    <h1 className="text-4xl font-bold p-4">
+                      {images[index].title}
+                    </h1>
+                    <h1 className="p-4 font-extralight text-base item-right-detail">
+                      {images[index].desc}
+                    </h1>
+                    <motion.div className="flex justify-center button-project">
+                      <motion.button
+                        className="button-home px-5"
+                        whileHover={{ scale: 1.1 }}
+                        onClick={() => setOpen(true)}
+                      >
+                        Detail
+                      </motion.button>
+                    </motion.div>
+                  </div>
+                </div>
+              </>
+            );
+          })}
+        </motion.div> */}
+
+        {/* <div className="detail-project relative">
           <button
             className="absolute cursor-pointer z-10 left-0 top-1/2 transform h-[459px] rounded-xl  mx-1 -mt-[10px] -translate-y-1/2  text-white p-2 group"
             onClick={prevSlide}
@@ -135,11 +416,12 @@ const Project = () => {
           <div className="w-full grid-cols-1 md:grid items-center sub-detail-project relative">
             <div className="justify-self-end">
               <Image
-                className="object-cover	"
+                className="	"
                 src={images[currentIndex].src}
                 alt={`Slider Image ${currentIndex + 1}`}
                 width={500}
                 height={500}
+                style={{ objectFit: "cover", width: "500px", height: "350px" }}
               />
             </div>
             <div className="justify-self-start">
@@ -172,123 +454,51 @@ const Project = () => {
               ></div>
             ))}
           </div>
-        </div>
-        {/* <div className="relative flex w-full mx-auto">
-          <div>
-            <Image
-              className="object-cover	"
-              src={images[currentIndex].src}
-              alt={`Slider Image ${currentIndex + 1}`}
-              width={500}
-              height={500}
-            />
-          </div>
-          <div>
-            <h1 className="text-4xl font-bold mb-6">
-              {images[currentIndex].title}
-            </h1>
-            <h1 className="font-extralight text-base">
-              {images[currentIndex].desc}
-            </h1>
-          </div>
         </div> */}
-
-        {/* <motion.div
-          className="flex justify-evenly w-full mt-16 px-20 md:px-40"
-          variants={fadeInAnimationsVariants1}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          <ImageSlider />
-        </motion.div> */}
       </div>
+
       <div>
         <DragCloseDrawer open={open} setOpen={setOpen}>
-          <div className="mx-auto max-w-2xl space-y-4 text-neutral-400">
-            <h2 className="text-4xl font-bold text-neutral-200">
-              Drag the handle at the top of this modal downwards 100px to close
-              it
+          <div className="mx-auto max-w-4xl space-y-4 text-neutral-400">
+            <h2 className="text-7xl font-bold">
+              {detail_item[currentIndex].title}
             </h2>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima
-              laboriosam quos deleniti veniam est culpa quis nihil enim suscipit
-              nulla aliquid iure optio quaerat deserunt, molestias quasi facere
-              aut quidem reprehenderit maiores.
-            </p>
-            <p>
-              Laudantium corrupti neque rerum labore tempore sapiente. Quos,
-              nobis dolores. Esse fuga, cupiditate rerum soluta magni numquam
-              nemo aliquid voluptate similique deserunt!
-            </p>
-            <p>
-              Rerum inventore provident laboriosam quo facilis nisi voluptatem
-              quam maxime pariatur. Velit reiciendis quasi sit magni numquam
-              quos itaque ratione, fugit adipisci atque est, tenetur officiis
-              explicabo id molestiae aperiam? Expedita quidem inventore magni?
-              Doloremque architecto mollitia, dicta, fugit minima velit
-              explicabo sapiente beatae fugiat accusamus voluptatum, error
-              voluptatem ab asperiores quo modi possimus.
-            </p>
-            <p>
-              Sit laborum molestias ex quisquam molestiae cum fugiat
-              praesentium! Consequatur excepturi quod nemo harum laudantium
-              accusantium nisi odio?
-            </p>
-            <p>
-              Deleniti, animi maiores officiis quos eaque neque voluptas omnis
-              quia error a dolores, pariatur ad obcaecati, vitae nisi
-              perspiciatis fugiat sapiente accusantium. Magnam, a nihil soluta
-              eos vero illo ab sequi, dolores culpa, quia hic?
-            </p>
-            <p>
-              Eos in saepe dignissimos tempore. Laudantium cumque eius, et
-              distinctio illum magnam molestiae doloribus. Fugiat voluptatum
-              necessitatibus vero eligendi quae, similique non debitis qui
-              veniam praesentium rerum labore libero architecto tempore nesciunt
-              est atque animi voluptatibus. Aliquam repellendus provident
-              tempora sequi officia sint voluptates eaque minima suscipit, cum
-              maiores quos possimus. Vero ex porro asperiores voluptas
-              voluptatibus?
-            </p>
-            <p>
-              Debitis eos aut ullam odit fuga. Numquam deleniti libero quas
-              sunt? Exercitationem earum odio aliquam necessitatibus est
-              accusamus consequuntur nisi natus dolore libero voluptatibus odit
-              doloribus laudantium iure, dicta placeat molestias porro quasi
-              amet? Sint, reiciendis tenetur distinctio eaque delectus, maiores,
-              nihil voluptas dolorem necessitatibus consequatur aliquid?
-            </p>
-            <p>
-              Sunt ex, cum culpa vel odio dicta expedita omnis amet debitis
-              inventore necessitatibus quaerat est molestias delectus. Dolorem,
-              eius? Quae, itaque ipsa incidunt nobis repellendus, sunt dolorum
-              aliquam ad culpa repudiandae impedit omnis, expedita illum
-              voluptas delectus similique ducimus saepe pariatur. Molestias
-              similique quam dolore provident doloremque maiores autem ab
-              blanditiis voluptatum dignissimos culpa sed nesciunt laboriosam,
-              in dicta consectetur.
-            </p>
-            <p>
-              Voluptates ea, aspernatur possimus, iusto temporibus non
-              laudantium neque molestias rem tempore eligendi earum nisi dolorum
-              asperiores at rerum!
-            </p>
-            <p>
-              Eaque totam error quia, ut eius perspiciatis unde velit temporibus
-              mollitia. Aperiam ad tempora aliquam est molestias commodi
-              cupiditate quos impedit nostrum accusantium quo fugit eveniet
-              temporibus quam cumque autem porro, id ut debitis itaque et nemo
-              exercitationem voluptatibus? Aspernatur corrupti quas iusto
-              dolores nemo pariatur debitis quae dolorem! Nemo, eius? Dolorem
-              quam nemo magnam ratione deserunt aperiam. Voluptatum ipsa,
-              molestias aspernatur quas distinctio numquam qui laboriosam id ab
-              totam commodi laborum tempora error natus vitae eligendi
-              reiciendis maiores ex illo? Tempore at animi earum vitae enim
-              sunt, dignissimos, mollitia corrupti officia obcaecati error iure
-              vero repudiandae nihil magni molestias quibusdam dolorem aperiam
-              modi. Harum, fugit.
-            </p>
+            <h3 className="text-2xl font-semibold">
+              {detail_item[currentIndex].subtitle}
+            </h3>
+            <Image
+              className="w-auto rounded-2xl"
+              src={detail_item[currentIndex].hero}
+              alt={`Slider Image ${currentIndex + 1}`}
+            />
+            <p className="text-xl font-bold">The Problem</p>
+            <p>{detail_item[currentIndex].problem}</p>
+            {/* <p className="text-xl font-bold">The Idea</p>
+            <p>{detail_item[currentIndex].idea}</p> */}
+            <p className="text-xl font-bold">The Motivation</p>
+            <p>{detail_item[currentIndex].motivation}</p>
+            <p className="text-xl font-bold">The Goals</p>
+            {detail_item[currentIndex].goals.map((goalitem, index) => {
+              return (
+                <>
+                  <ul className="list-disc list-inside ml-4">
+                    <li>{goalitem}</li>
+                  </ul>
+                </>
+              );
+            })}
+            <p className="text-xl font-bold">Flow Diagram</p>
+
+            <p className="text-xl font-bold">Tech Stack</p>
+            {/* {detail_item[currentIndex].techStack.frontend.map((itemTech, index) => {
+              return (
+                <>
+                  <ul className="list-disc list-inside ml-4">
+                    <li>{itemTech}</li>
+                  </ul>
+                </>
+              );
+            })} */}
           </div>
         </DragCloseDrawer>
       </div>

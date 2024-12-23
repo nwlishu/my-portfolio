@@ -106,6 +106,22 @@ const Expertise = () => {
     },
   ];
 
+  const fadeInAnimationsVariants1 = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.2,
+        },
+      };
+    },
+  };
+
   const fadeInAnimationsVariants = {
     initial: {
       opacity: 0,
@@ -155,13 +171,15 @@ const Expertise = () => {
       <motion.div className="expertise-section">
         <motion.div
           className="mt-14 text-5xl md:text-7xl font-bold leading-tight"
-          variants={fadeInAnimationsVariants}
+          variants={fadeInAnimationsVariants1}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
-          Expertise
+          My Stacks
         </motion.div>
+
+
         <div className="flex flex-col  justify-evenly w-full mt-16 px-20 md:px-40">
           <div className="text-left-contact flex flex-col flex-1 basis-2/5">
             <div className="flex justify-between items-center">
@@ -172,17 +190,6 @@ const Expertise = () => {
               ) : (
                 <>
                   <h1 className="mt-5 mb-5 text-4xl font-bold">My Tools</h1>
-                  {/* <p>
-                    I work with a wide range of development tools and
-                    technologies. For front-end, I utilize frameworks like React
-                    and Vue.js for crafting dynamic user interfaces. On the
-                    back-end, I leverage Node.js, Python, and databases like
-                    MongoDB and SQL to build robust APIs and server-side logic.
-                    In AI development, I apply tools such as TensorFlow,
-                    PyTorch, and various data science libraries to build
-                    intelligent applications and models. These tools empower me
-                    to deliver high-quality, innovative solutions.
-                  </p> */}
                 </>
               )}
               <div
@@ -192,7 +199,7 @@ const Expertise = () => {
                 } p-[1px]  `}
               >
                 <motion.div
-                  className={`h-7 w-14 rounded-full z-1000 ${
+                  className={`h-7 w-14 rounded-full z-1000 grid items-center ${
                     toggle ? "toggle-button-style" : "toggle-button-style"
                   }`}
                   layout
@@ -216,20 +223,16 @@ const Expertise = () => {
             </div>
             {toggle ? (
               <>
-                <p className="font-light text-base	">
+                {/* <p className="font-light text-base	">
                   I specialize in full-stack development, creating responsive
                   web applications with expertise in front-end and back-end
                   technologies. I also integrate AI solutions, including machine
                   learning and automation, for enhanced functionality.
-                </p>
+                </p> */}
               </>
             ) : (
               <></>
             )}
-
-            {/* <h1 className="text-xl font-light">
-              &quot;Passionate to exploring diverse tech stacks.&quot;
-            </h1> */}
           </div>
           <div className="form-right-contact flex-1 basis-3/5">
             <div className="scroll-container">
