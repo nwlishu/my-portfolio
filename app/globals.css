@@ -12,6 +12,15 @@
     display: none;
   }
 }
+html, body {
+  overflow: auto; /* Enable scrolling */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar in WebKit browsers */
+}
 
 .initial-back {
   background-color: blue;
