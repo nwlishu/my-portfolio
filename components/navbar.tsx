@@ -155,7 +155,7 @@ const Navbar = (activeSection: any) => {
       </div>
       <motion.div className="social hidden md:block ">
         <motion.div className="social-sub" variants={animateSocialVariants}>
-          <a href="#">
+          <a href="https://github.com/nwlishu" target="_blank">
             <Image
               src="/devicon--github.png"
               className="social-item"
@@ -164,7 +164,10 @@ const Navbar = (activeSection: any) => {
               alt="instagram"
             />
           </a>
-          <a href="#">
+          <a
+            href="https://www.linkedin.com/in/supaporn-nguanprasert-6b216921b/"
+            target="_blank"
+          >
             <Image
               src="/mdi--linkedin.png"
               className="social-item"
@@ -173,7 +176,7 @@ const Navbar = (activeSection: any) => {
               alt="instagram"
             />
           </a>
-          <a href="#">
+          <a href="mailto:supapornnguanprasert@gmail.com">
             <Image
               src="/mdi--gmail.png"
               className="social-item"
@@ -182,7 +185,7 @@ const Navbar = (activeSection: any) => {
               alt="instagram"
             />
           </a>
-          <a href="#">
+          <a href="https://www.youtube.com/@nwnguan" target="_blank">
             <Image
               src="/mdi--youtube.png"
               className="social-item"
