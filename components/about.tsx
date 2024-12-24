@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import image3 from "@/public/pexels-vkiller-22080094.jpg";
+import image3 from "@/public/IMG_3248.jpg";
 
 const About = () => {
   const fadeInAnimationsVariants = {
