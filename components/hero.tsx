@@ -68,8 +68,7 @@ const hero = () => {
             animate={{ clipPath: "inset(0 0 0 0)" }}
             transition={{ duration: 0.2, ease: "easeOut", delay: 1.2 }}
           >
-            Hello,
-            I&apos;m Supaporn.
+            Hello, I&apos;m Supaporn.
           </motion.p>
           <motion.p
             className="second-text-hero text-5xl md:text-6xl font-bold leading-5"
@@ -110,7 +109,14 @@ const hero = () => {
           >
             {/* <a href="/books/a-great-book.pdf" target="_blank">
              */}
-            <a className="text-sm md:text-base">My Resume</a>
+            <a
+              href="files/SUPAPORN_NGUANPRASERT_final.pdf"
+              download="resume_supaporn"
+              className="text-sm md:text-base"
+              target="_blank"
+            >
+              My Resume
+            </a>
           </motion.button>
         </motion.div>
       </div>
