@@ -460,10 +460,10 @@ const Project = () => {
       <div>
         <DragCloseDrawer open={open} setOpen={setOpen}>
           <div className="mx-auto max-w-4xl space-y-4 text-neutral-400">
-            <h2 className="text-7xl font-bold">
+            <h2 className="text-2xl md:text-7xl font-bold">
               {detail_item[currentIndex].title}
             </h2>
-            <h3 className="text-2xl font-semibold">
+            <h3 className="text-base md:text-2xl font-semibold">
               {detail_item[currentIndex].subtitle}
             </h3>
             <Image
@@ -567,7 +567,7 @@ const DragCloseDrawer: React.FC<DragCloseDrawerProps> = ({
             transition={{
               ease: "easeInOut",
             }}
-            className="absolute bottom-0 h-[90vh] w-full overflow-hidden rounded-t-3xl bg-white"
+            className="absolute bottom-0 h-[75vh] md:h-[90vh] w-full overflow-hidden rounded-t-3xl bg-white"
             style={{ y }}
             drag="y"
             dragControls={controls}
