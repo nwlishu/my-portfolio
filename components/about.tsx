@@ -6,12 +6,44 @@ const About = () => {
   const fadeInAnimationsVariants = {
     initial: {
       opacity: 0,
-      y: 100,
+      // y: 100,
     },
     animate: (index: number) => {
       return {
         opacity: 1,
         y: 0,
+        transition: {
+          delay: 0.2,
+          ease: "easeIn",
+        },
+      };
+    },
+  };
+  const fadeInAnimationsHorizontalRightVariants = {
+    initial: {
+      opacity: 0,
+      x: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        x: 0,
+        transition: {
+          delay: 0.2,
+          ease: "easeOut",
+        },
+      };
+    },
+  };
+  const fadeInAnimationsHorizontalleftVariants = {
+    initial: {
+      opacity: 0,
+      x: 200,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        x: 0,
         transition: {
           delay: 0.2,
         },
@@ -26,30 +58,39 @@ const About = () => {
           variants={fadeInAnimationsVariants}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           About Me
         </motion.div>
-        <div className="flex flex-col md:flex-row p-10 md:p-36 items-center">
-          <div className="flex-1 flex-col items-center">
+        <div className="flex flex-col md:flex-row p-10 md:p-24 items-center">
+          <motion.div className="flex-1 flex justify-center">
+            <div className="container-about">
+              <div className="square"></div>
+              <Image
+                src={image3}
+                className="image-about profile-image border-2 border-gray-200 "
+                alt="image"
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            className="flex-1 flex-col items-center"
+            variants={fadeInAnimationsHorizontalRightVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             <h1 className="font-bold text-xl">Hello.</h1>
             <h1 className="font-bold text-xl">My name is Supaporn.</h1>
             <br />
             <p className="font-light item-right-detail">
-              I’m a software engineer from Bangkok, Thailand.
+              I&apos;m a software engineer from Bangkok, Thailand.
             </p>
             <p className="font-light item-right-detail">
-              I&apos;m hold a Bachelor degree in Computer Engineering from the
-              Mahidol University in Thailand and Master&apos;s degree in
-              Computer Science from the National Taiwan Unversity of Science and
-              Technology.
+              I&apos;m hold a Master&apos;s degree in Computer Science from the
+              National Taiwan Unversity of Science and Technology.
             </p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="w-60">
-              <Image src={image3} className="image-about" alt="iamge" />
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>

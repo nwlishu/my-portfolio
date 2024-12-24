@@ -12,13 +12,15 @@
     display: none;
   }
 }
-html, body {
+html,
+body {
   overflow: auto; /* Enable scrolling */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
   -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar {
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
   display: none; /* Hides the scrollbar in WebKit browsers */
 }
 
@@ -30,10 +32,9 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   scroll-snap-align: start;
 }
 
-
- .stickyTitle {
+.stickyTitle {
   position: sticky;
-  top: 4em; 
+  top: 4em;
 }
 .cardContainer {
   height: 100vh;
@@ -50,7 +51,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     /* box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   }
 }
-.text-project{
+.text-project {
   font-size: 4.5rem;
 }
 
@@ -222,15 +223,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   /* max-width: 18em; */
   word-break: break-word;
 }
-.image-about {
-  max-width: 500px;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
+
 .detail-project {
   width: 79.1666666667vw !important;
   align-items: center;
@@ -605,7 +598,6 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   /* margin: 0 60px 35px; */
   /* padding: 20px 10px; */
   overflow: hidden;
-
 }
 
 .card-list {
@@ -615,11 +607,11 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
 .card-list .card-item {
   list-style: none;
 }
-.contrainer-card-parent{
+.contrainer-card-parent {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
 }
-.container-card{
+.container-card {
   margin-top: 3em;
 }
 .contrainer-card {
@@ -630,8 +622,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   text-decoration: none;
   /* border: 2px solid ; */
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
-  transition: 0.2s ease; 
-
+  transition: 0.2s ease;
 }
 
 .project-card {
@@ -667,4 +658,44 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
 .sentinel {
   height: 1px;
   width: 100%;
+}
+.box-about {
+  background: gray;
+  position: absolute; /* Positioned relative to the parent with position: relative */
+  width: 20%;
+  height: 40%;
+  top: 30%;
+  left: 60%;
+  z-index: 3; /* Ensure it's below the image */
+}
+
+.image-about {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  position: relative; /* Positioned on top of the box-about */
+  z-index: 8;
+}
+.container-about {
+  position: relative; /* Establish positioning context */
+  display: inline-block; /* Adjust to size of the content */
+}
+
+.square {
+  position: absolute; /* Position relative to the container */
+  width: 20em; /* Adjust size as needed */
+  height: 20em; /* Adjust size as needed */
+  background-color: #e0e0e0; /* Light gray background */
+  top: 20px; /* Position slightly below the image */
+  left: 20px; /* Position slightly to the right of the image */
+  z-index: 1; /* Ensure it's behind the image */
+}
+
+.profile-image {
+  position: relative; /* Ensure it's above the square */
+  z-index: 2; /* Stacks the image above the square */
+  width: 20em; /* Adjust to fit your design */
+  height: auto; /* Maintain aspect ratio */
 }

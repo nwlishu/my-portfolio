@@ -110,7 +110,7 @@ const hero = () => {
             {/* <a href="/books/a-great-book.pdf" target="_blank">
              */}
             <a
-              href="files/SUPAPORN_NGUANPRASERT_final.pdf"
+              href="files/SUPAPORN_NGUANPRASERT.pdf"
               download="resume_supaporn"
               className="text-sm md:text-base"
               target="_blank"

@@ -145,7 +145,7 @@ const detail_item: DetailItem[] = [
 const fadeInAnimationsVariants = {
   initial: {
     opacity: 0,
-    y: 100,
+    // y: 100,
   },
   animate: (index: number) => {
     return {
@@ -153,6 +153,7 @@ const fadeInAnimationsVariants = {
       y: 0,
       transition: {
         delay: 0.2,
+        ease: "easeOut",
       },
     };
   },
@@ -168,6 +169,7 @@ const fadeInAnimationsVariants1 = {
       y: 0,
       transition: {
         delay: 0.5,
+        ease: "easeOut",
       },
     };
   },
@@ -226,53 +228,58 @@ const Project = () => {
             variants={fadeInAnimationsVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <p className=" text-5xl md:text-7xl font-bold md:leading-none mb-5 ">
               My project
             </p>
           </motion.div>
         </div>
-
-        {detail_item.map((item, index) => {
-          return (
-            <>
-              <div className="cardContainer">
-                <div
-                  style={{
-                    backgroundColor: item.color,
-                    border: `groove`,
-                  }}
-                  className="card"
-                >
-                  <p className="flex justify-end p-2 md:p-3 font-extralight text-sm md:text-base">
-                    {item.field}
-                  </p>
-                  <hr />
-                  <div className="flex flex-col md:flex-row justify-evenly items-center p-5 md:p-10">
-                    <Image
-                      className="image-project w-56	md:w-96"
-                      src={images[index].src}
-                      alt={`Slider Image ${index + 1}`}
-                      // width={350}
-                      // height={290}
-                      // style={{
-                      //   objectFit: "cover",
-                      //   width: "20em",
-                      //   height: "15em",
-                      // }}
-                    />
-                    <div>
-                      <p className="text-xl md:text-3xl font-bold pt-5">
-                        {item.title}
-                      </p>
-                      <p className="font-extralight text-sm md:text-base item-right-detail">
-                        {images[index].desc}
-                      </p>
-                      <p className="font-extralight text-sm md:text-base">
-                        <u>Tech Stack:</u>
-                      </p>
-                      {/* <ul>
+        <motion.div
+          variants={fadeInAnimationsVariants1}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
+          {detail_item.map((item, index) => {
+            return (
+              <>
+                <div className="cardContainer">
+                  <div
+                    style={{
+                      backgroundColor: item.color,
+                      border: `groove`,
+                    }}
+                    className="card"
+                  >
+                    <p className="flex justify-end p-2 md:p-3 font-extralight text-sm md:text-base">
+                      {item.field}
+                    </p>
+                    <hr />
+                    <div className="flex flex-col md:flex-row justify-evenly items-center p-5 md:p-10">
+                      <Image
+                        className="image-project w-56	md:w-96"
+                        src={images[index].src}
+                        alt={`Slider Image ${index + 1}`}
+                        // width={350}
+                        // height={290}
+                        // style={{
+                        //   objectFit: "cover",
+                        //   width: "20em",
+                        //   height: "15em",
+                        // }}
+                      />
+                      <div>
+                        <p className="text-xl md:text-3xl font-bold pt-5">
+                          {item.title}
+                        </p>
+                        <p className="font-extralight text-sm md:text-base item-right-detail">
+                          {images[index].desc}
+                        </p>
+                        <p className="font-extralight text-sm md:text-base">
+                          <u>Tech Stack:</u>
+                        </p>
+                        {/* <ul>
                         {item.techStack.map((techItem, index) => {
                           return (
                             <>
@@ -283,26 +290,27 @@ const Project = () => {
                           );
                         })}
                       </ul> */}
-                      <motion.div className="flex justify-center button-project">
-                        <motion.button
-                          className="button-home px-5"
-                          whileHover={{ scale: 1.1 }}
-                          onClick={() => {
-                            setOpen(true), setCurrentIndex(index);
-                          }}
-                        >
-                          <div className="button-home text-sm md:text-base px-5">
-                            See more
-                          </div>
-                        </motion.button>
-                      </motion.div>
+                        <motion.div className="flex justify-center button-project">
+                          <motion.button
+                            className="button-home px-5"
+                            whileHover={{ scale: 1.1 }}
+                            onClick={() => {
+                              setOpen(true), setCurrentIndex(index);
+                            }}
+                          >
+                            <div className="button-home text-sm md:text-base px-5">
+                              See more
+                            </div>
+                          </motion.button>
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </>
-          );
-        })}
+              </>
+            );
+          })}
+        </motion.div>
 
         {/* <motion.div className="container-card">
           <div className="card-wrapper">

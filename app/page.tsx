@@ -79,7 +79,7 @@ export default function Home() {
         animate={{ height: "100vh" }}
         transition={{
           duration: 1,
-          ease: "easeIn",
+          ease: "easeOut",
         }}
       >
         <motion.div

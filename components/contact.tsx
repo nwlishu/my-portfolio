@@ -5,7 +5,7 @@ const Contact = (activeSection: any) => {
   const fadeInAnimationsVariants = {
     initial: {
       opacity: 0,
-      y: 100,
+      // y: 100,
     },
     animate: (index: number) => {
       return {
@@ -13,6 +13,7 @@ const Contact = (activeSection: any) => {
         y: 0,
         transition: {
           delay: 0.2,
+          ease: 'easeOut'
         },
       };
     },
@@ -29,6 +30,7 @@ const Contact = (activeSection: any) => {
         x: 0,
         transition: {
           delay: 0.5,
+          ease: 'easeOut'
         },
       };
     },
@@ -57,7 +59,7 @@ const Contact = (activeSection: any) => {
           variants={fadeInAnimationsVariants}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           Contact Me
         </motion.div>
