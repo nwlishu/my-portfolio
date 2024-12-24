@@ -32,20 +32,18 @@ const About = () => {
         </motion.div>
         <div className="flex flex-col md:flex-row p-10 md:p-36 items-center">
           <div className="flex-1 flex-col items-center">
-     
-              <h1 className="font-bold text-xl">Hello.</h1>
-              <h1 className="font-bold text-xl">My name is Supaporn.</h1>
-              <br />
-              <p className="font-light item-right-detail">
-                I’m a software engineer from Bangkok, Thailand.
-              </p>
-              <p className="font-light item-right-detail">
-                I’m hold a Bachelor degree in Computer Engineering from the
-                Mahidol University in Thailand and Master's degree in Computer
-                Science from the National Taiwan Unversity of Science and
-                Technology.
-              </p>
-         
+            <h1 className="font-bold text-xl">Hello.</h1>
+            <h1 className="font-bold text-xl">My name is Supaporn.</h1>
+            <br />
+            <p className="font-light item-right-detail">
+              I’m a software engineer from Bangkok, Thailand.
+            </p>
+            <p className="font-light item-right-detail">
+              I&apos;m hold a Bachelor degree in Computer Engineering from the
+              Mahidol University in Thailand and Master&apos;s degree in
+              Computer Science from the National Taiwan Unversity of Science and
+              Technology.
+            </p>
           </div>
           <div className="flex-1 flex justify-center">
             <div className="w-60">
