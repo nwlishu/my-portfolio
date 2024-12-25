@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 
-const Link = () => {
-  const items = ["Home", "About", "Expertise", "Projects", "Contact"];
-
+const Link = ({ setOpen }: { setOpen: any }) => {
+  const items = ["Home", "About", "Projects", "Contact"];
+  // const items = ["Home", "About", "Expertise", "Projects", "Contact"];
+  const [isOpen, setIsOpen] = useState(true);
   // Parent variants
   const variants = {
     open: {
@@ -30,6 +31,9 @@ const Link = () => {
       y: -20,
     },
   };
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <motion.div
@@ -45,6 +49,7 @@ const Link = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setOpen((prev: any) => !prev)}
         >
           {item}
         </motion.a>

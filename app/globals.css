@@ -309,7 +309,7 @@ body::-webkit-scrollbar {
   gap: 20px;
 }
 .link-sidebar a {
-  font-size: 40px;
+  font-size: 25px;
   background: transparent;
 }
 .svg-hambur {
@@ -678,19 +678,19 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   position: absolute; /* Positioned on top of the box-about */
   z-index: 8;
   left: 0px;
-    /* width: 100%; */
-    /* height: 100%; */
-    object-fit: cover;
-    object-position: center center;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.666rem;
+  /* width: 100%; */
+  /* height: 100%; */
+  object-fit: cover;
+  object-position: center center;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.666rem;
 }
 .container-about {
   position: relative; /* Establish positioning context */
@@ -700,7 +700,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
 .square {
   position: absolute;
   width: 90%;
-  height: 90%;/* Adjust size as needed */
+  height: 90%; /* Adjust size as needed */
   background-color: #e0e0e0; /* Light gray background */
   top: 10%; /* Position slightly below the image */
   left: 5%; /* Position slightly to the right of the image */

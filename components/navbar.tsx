@@ -95,25 +95,6 @@ const Navbar = (activeSection: any) => {
                   About
                 </a>
               </li>
-              {/* <li className="li-nav">
-                <a
-                  className={`${
-                    activeSection.activeSection === "Expertise"
-                      ? "underline"
-                      : ""
-                  }`}
-                  style={{
-                    color:
-                      activeSection.activeSection === "Expertise"
-                        ? "#272727"
-                        : "#999999",
-                  }}
-                  href="#Expertise"
-                >
-                  {" "}
-                  Expertise
-                </a>
-              </li> */}
               <li className="li-nav">
                 <a
                   className={`${
