@@ -13,6 +13,7 @@
     "@heroicons/react": "^2.1.5",
     "@next/font": "^14.2.10",
     "@nextui-org/react": "^2.4.6",
+    "@studio-freight/lenis": "^1.0.42",
     "@types/nodemailer": "^6.4.15",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.23",

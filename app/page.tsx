@@ -13,8 +13,18 @@ import Expertise from "@/components/expertise";
 import Navbar from "@/components/navbar";
 import Project from "@/components/project";
 import About from "@/components/about";
+// import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+  //   function raf(time: number) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  //   requestAnimationFrame(raf);
+  // }, []);
+
   const [activeSection, setActiveSection] = useState("");
   const sections = ["Home", "About", "Expertise", "Projects", "Contact"];
   console.log(activeSection);

@@ -5,6 +5,8 @@ import {
   useMotionValue,
   useAnimate,
   motion,
+  useTransform,
+  useScroll,
 } from "framer-motion";
 import Image from "next/image";
 import ImageSlider from "@/components/slidebar";
@@ -182,10 +184,23 @@ interface ImageData {
 }
 
 const Project = () => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
+
   const [open, setOpen] = useState(false);
 
   // State to keep track of the current image index
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  console.log(currentIndex);
+  const targetScale = 1 - (detail_item.length - currentIndex) * 100;
+  const scale = useTransform(
+    scrollYProgress,
+    [currentIndex * 0.33, 1],
+    [1, targetScale]
+  );
 
   // State to determine if the image is being hovered over
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -212,14 +227,6 @@ const Project = () => {
     setIsHovered(false);
   };
 
-  // interface CardProps {
-  //   title: string;
-  //   subtitle: string;
-  //   techStack: string[];
-  //   detail: string;
-  //   color: string;
-  // }
-
   return (
     <>
       <div className="project-section">
@@ -240,11 +247,15 @@ const Project = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
+          ref={container}
         >
           {detail_item.map((item, index) => {
             return (
               <>
-                <div className="cardContainer">
+                <motion.div
+                  className="cardContainer"
+                  style={{ scale, top: `calc(10em + ${index * 25}px)` }}
+                >
                   <div
                     style={{
                       backgroundColor: item.color,
@@ -261,13 +272,6 @@ const Project = () => {
                         className="image-project w-56	md:w-96"
                         src={images[index].src}
                         alt={`Slider Image ${index + 1}`}
-                        // width={350}
-                        // height={290}
-                        // style={{
-                        //   objectFit: "cover",
-                        //   width: "20em",
-                        //   height: "15em",
-                        // }}
                       />
                       <div>
                         <p className="text-xl md:text-3xl font-bold pt-5">
@@ -279,17 +283,6 @@ const Project = () => {
                         <p className="font-extralight text-sm md:text-base">
                           <u>Tech Stack:</u>
                         </p>
-                        {/* <ul>
-                        {item.techStack.map((techItem, index) => {
-                          return (
-                            <>
-                              <li className="font-extralight text-sm md:text-base">
-                                - {techItem}
-                              </li>
-                            </>
-                          );
-                        })}
-                      </ul> */}
                         <motion.div className="flex justify-center button-project">
                           <motion.button
                             className="button-home px-5"
@@ -299,14 +292,14 @@ const Project = () => {
                             }}
                           >
                             <div className="button-home text-sm md:text-base px-5">
-                              See more
+                              Detail
                             </div>
                           </motion.button>
                         </motion.div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </>
             );
           })}
