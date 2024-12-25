@@ -63,9 +63,11 @@ const About = () => {
           About Me
         </motion.div>
         <div className="flex flex-col md:flex-row p-10 md:p-24 items-center">
-          <motion.div className="flex-1 flex justify-center">
-            <div className="container-about">
-              <div className="square"></div>
+          <motion.div className=" flex-1 justify-center ">
+            <div className="container-about w-full">
+           
+                <div className="square w-full"></div>
+          
               <Image
                 src={image3}
                 className="image-about profile-image border-2 border-gray-200 "
@@ -74,7 +76,7 @@ const About = () => {
             </div>
           </motion.div>
           <motion.div
-            className="flex-1 flex-col items-center"
+            className=" flex-1 flex-col items-center"
             variants={fadeInAnimationsHorizontalRightVariants}
             initial="initial"
             whileInView="animate"

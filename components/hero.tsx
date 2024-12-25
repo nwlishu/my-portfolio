@@ -58,7 +58,7 @@ const hero = () => {
   };
 
   return (
-    <div className="hero-section">
+    <div className="hero-section ">
       <div className="flex flex-col justify-evenly ">
         <div className="p-2">
           {/* <p className="first-text-hero font-bold leading-tight">Hello,</p> */}

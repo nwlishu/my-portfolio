@@ -89,7 +89,7 @@ export default function Home() {
         >
           <Navbar activeSection={activeSection} />
         </motion.div>
-        <section id="Home" className={`h-screen snap-always   `}>
+        <section id="Home" className={`md:h-screen snap-always`}>
           <Hero />
         </section>
 
