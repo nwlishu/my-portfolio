@@ -30,11 +30,17 @@ interface ImageData {
 interface techStackDetail {
   name: Array<string>;
 }
+interface Technology {
+  img: string; // URL of the technology image
+  name: string; // Name of the technology
+}
 interface DetailItem {
   title: string;
   field: string;
   subtitle: string;
-  techStack: Array<string>;
+  techStack: {
+    [key: string]: Array<Technology>; // Tech categories with an array of Technology objects
+  };
   detail: string;
   motivation: string;
   problem: string;
@@ -42,56 +48,70 @@ interface DetailItem {
   color: string;
   hero: StaticImageData;
   idea: string;
+  futureWork?: string;
 }
 
 // Image data array
 const images: ImageData[] = [
   {
-    src: finance,
-    title: "Personal Investment",
-    desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
+    src: inventory,
+    title: "Inventory Management",
+    desc: "Developed an adversarial method to protect copyright images from generative models.",
   },
-  //     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
-
   {
     src: ai,
     title: "AI security",
     desc: "Developed an adversarial example method to protect copyright images from diffusion models.",
   },
   //     desc: "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
-
   {
-    src: inventory,
-    title: "Inventory Management",
-    desc: "Developed an adversarial method to protect copyright images from generative models.",
+    src: finance,
+    title: "Personal Investment",
+    desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
   },
-  {
-    src: inventory,
-    title: "Inventory Management",
-    desc: "Developed an adversarial method to protect copyright images from generative models.",
-  },
+  //     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
 ];
 
 const detail_item: DetailItem[] = [
   {
-    title: "Personal Investment",
-    field: "Web Development and Machine Learning",
-    subtitle: "Web development",
-    techStack: ["React.js", "Next.js"],
+    title: "Inventory Management System",
+    field: "Web Development",
+    subtitle:
+      "A web-based application for real-time inventory tracking and management, built to improve operational efficiency for businesses",
+    techStack: {
+      "Front-end": [
+        // { img: "/devicon--react.png", name: "React.js" },
+        { img: "/devicon--nextjs.png", name: "Next.js" },
+        { img: "/devicon--tailwindcss.png", name: "tailwindcss" },
+      ],
+      "Back-end": [
+        { img: "/devicon--nodejs-wordmark.png", name: "Node.js" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+      Database: [
+        { img: "/devicon--oracle.png", name: "Oracle" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+      Server: [
+        { img: "/logos--vercel-icon.png", name: "Vercel" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+    },
     detail:
-      "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+      "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
     problem:
-      "I often find it difficult to keep track of my personal finances and investments. It's easy for me to lose sight of where my money is going, which sometimes leads to missed opportunities for saving or investing.",
+      "Small and medium-sized businesses often struggle with inefficient inventory management processes, leading to overstocking, stockouts, and revenue loss.",
     goals: [
-      "My goal is to create an easy-to-use dashboard that provides insightful analytics (e.g., ROI, risk, market trends) to aid in better decision-making. This will help me make smarter choices when buying, selling, or holding investments.",
-      "I want to set specific savings goals (e.g., saving for a house, retirement, emergency fund) and use the system to track progress toward those goals. It will help me set realistic targets, automate saving, and ensure I stay on track.",
-      "A key goal is to develop a long-term strategy that aligns with my financial goals. This includes retirement planning, wealth-building, and ensuring my investments grow in line with my life plans.",
+      "Build a inventory tracking system with low-stock notifications.",
+      "Implement user-friendly features for managing stock, suppliers, and orders.",
     ],
     motivation:
-      "My motivation to create a personal investment tool stems from a desire to achieve financial independence. I want to be more in control of my finances, reduce uncertainty, and ensure that I am making smart financial decisions. By building a tool that tracks my investments and helps me visualize my financial goals, I can make more informed decisions and optimize the returns on my investment.",
+      "I wanted to leverage my skills in web development and system design to create a modern inventory management solution that simplifies operations, minimizes waste, and provides valuable insights.",
     color: "#F5F5F7",
     hero: hero_inventory,
-    idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
+    idea: "An Inventory Management System automates and optimizes the process of tracking inventory throughout its lifecycle — from procurement to storage, and ultimately to sales or distribution. It ensures efficiency, reduces manual errors, and provides real-time insights for better decision-making.",
+    futureWork:
+      "In the future, this project will incorporate machine learning to enhance inventory management capabilities. ML can be utilized for demand forecasting, anomaly detection, and automated stock replenishment. Additionally, it will enable dynamic pricing, supply chain optimization, and customer behavior analysis, ultimately improving decision-making, reducing costs, and increasing operational efficiency.",
   },
   {
     title: "AI security",
@@ -99,7 +119,25 @@ const detail_item: DetailItem[] = [
     subtitle:
       "Protecting the copyright image from diffusion model by using the adversarial example.",
 
-    techStack: ["React.js", "Next.js"],
+    techStack: {
+      "Framework & Language": [
+        { img: "/devicon--pytorch.png", name: "Pytorch" },
+        { img: "/hf-logo.png", name: "HuggingFace" },
+        { img: "/devicon--python.png", name: "Python" },
+      ],
+      "Cloud Platform": [
+        { img: "/devicon--googlecloud.png", name: "Google Cloud" },
+        { img: "/95939477.png", name: "Runpod.io" },
+      ],
+      Notebooks: [
+        { img: "/logos--jupyter.png", name: "Jupyter" },
+        { img: "/devicon--googlecolab.png", name: "Google Colab" },
+      ],
+      "Foundational Model and LLMs": [
+        { img: "/Stability_Ai_—_wordmark.png", name: "Stabillity ai" },
+        { img: "/30233788.png", name: "ComVis" },
+      ],
+    },
     detail:
       "Developed an adversarial method to protect copyright images from diffusion models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
     problem:
@@ -114,31 +152,42 @@ const detail_item: DetailItem[] = [
     idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
   },
   {
-    title: "Inventory Management System",
-    field: "Web Development",
-    subtitle:
-      "A web-based application for real-time inventory tracking and management, built to improve operational efficiency for businesses",
-    techStack: [
-      "React.js",
-      "Next.js",
-      "Node.js",
-      "Express.js",
-      "Vercle",
-      "Oracle Database Could",
-    ],
+    title: "Personal Investment",
+    field: "Web Development and Machine Learning",
+    subtitle: "Web development",
+    techStack: {
+      "Front-end": [
+        // { img: "/devicon--react.png", name: "React.js" },
+        { img: "/devicon--nextjs.png", name: "Next.js" },
+        { img: "/devicon--tailwindcss.png", name: "tailwindcss" },
+      ],
+      "Back-end": [
+        { img: "/devicon--nodejs-wordmark.png", name: "Node.js" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+      Database: [
+        { img: "/devicon--oracle.png", name: "Oracle" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+      Server: [
+        { img: "/logos--vercel-icon.png", name: "Vercel" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+    },
     detail:
-      "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
+      "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
     problem:
-      "Small and medium-sized businesses often struggle with inefficient inventory management processes, leading to overstocking, stockouts, and revenue loss.",
+      "I often find it difficult to keep track of my personal finances and investments. It's easy for me to lose sight of where my money is going, which sometimes leads to missed opportunities for saving or investing.",
     goals: [
-      "Build a inventory tracking system with low-stock notifications.",
-      "Implement user-friendly features for managing stock, suppliers, and orders.",
+      "My goal is to create an easy-to-use dashboard that provides insightful analytics (e.g., ROI, risk, market trends) to aid in better decision-making. This will help me make smarter choices when buying, selling, or holding investments.",
+      "I want to set specific savings goals (e.g., saving for a house, retirement, emergency fund) and use the system to track progress toward those goals. It will help me set realistic targets, automate saving, and ensure I stay on track.",
+      "A key goal is to develop a long-term strategy that aligns with my financial goals. This includes retirement planning, wealth-building, and ensuring my investments grow in line with my life plans.",
     ],
     motivation:
-      "I wanted to leverage my skills in web development and system design to create a modern inventory management solution that simplifies operations, minimizes waste, and provides valuable insights.",
+      "My motivation to create a personal investment tool stems from a desire to achieve financial independence. I want to be more in control of my finances, reduce uncertainty, and ensure that I am making smart financial decisions. By building a tool that tracks my investments and helps me visualize my financial goals, I can make more informed decisions and optimize the returns on my investment.",
     color: "#F5F5F7",
     hero: hero_inventory,
-    idea: "An Inventory Management System automates and optimizes the process of tracking inventory throughout its lifecycle — from procurement to storage, and ultimately to sales or distribution. It ensures efficiency, reduces manual errors, and provides real-time insights for better decision-making.",
+    idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
   },
 ];
 
@@ -495,10 +544,51 @@ const Project = () => {
                 </>
               );
             })}
-            <p className="text-xl font-bold">Flow Diagram</p>
+            {/* <p className="text-xl font-bold">Flow Diagram</p> */}
 
             <p className="text-xl font-bold">Tech Stack</p>
-            <ul className="list-disc list-inside ml-4">
+
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full ">
+                {Object.entries(detail_item[currentIndex].techStack).map(
+                  ([category, technologies]) => (
+                    <div
+                      key={category}
+                      className="bg-white shadow-md rounded-lg  text-center"
+                    >
+                      <p className="flex justify-center items-center p-4 md:min-h-[80px]">
+                        {category}
+                      </p>
+                      <hr />
+                      {technologies.map(({ img, name }) => (
+                        <>
+                          <div className="flex items-center p-4">
+                            <Image
+                              src={img} // Using img URL from the object
+                              className="icon-skill"
+                              width={30}
+                              height={30}
+                              alt={name}
+                            />
+                            <p className="mx-2 ">{name}</p>
+                          </div>
+                        </>
+                      ))}
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+            {detail_item[currentIndex].futureWork ? (
+              <>
+                <p className="text-xl font-bold">Future Work</p>
+                <p>{detail_item[currentIndex].futureWork}</p>
+              </>
+            ) : (
+              <></>
+            )}
+
+            {/* <ul className="list-disc list-inside ml-4">
               {detail_item[currentIndex].techStack.map((itemTech, index) => {
                 return (
                   <>
@@ -506,16 +596,7 @@ const Project = () => {
                   </>
                 );
               })}
-            </ul>
-            {/* {detail_item[currentIndex].techStack.frontend.map((itemTech, index) => {
-              return (
-                <>
-                  <ul className="list-disc list-inside ml-4">
-                    <li>{itemTech}</li>
-                  </ul>
-                </>
-              );
-            })} */}
+            </ul> */}
           </div>
         </DragCloseDrawer>
       </div>
