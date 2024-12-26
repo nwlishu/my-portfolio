@@ -334,7 +334,7 @@ const Project = () => {
                               setOpen(true), setCurrentIndex(index);
                             }}
                           >
-                            <div className="button-home text-sm md:text-base px-5">
+                            <div className="button-home py-2 px-7 md:py-1 md:px-9  text-sm md:text-base ">
                               Detail
                             </div>
                           </motion.button>
