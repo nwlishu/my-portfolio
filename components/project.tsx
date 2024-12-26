@@ -123,6 +123,7 @@ const detail_item: DetailItem[] = [
       "Next.js",
       "Node.js",
       "Express.js",
+      "Vercle",
       "Oracle Database Could",
     ],
     detail:
