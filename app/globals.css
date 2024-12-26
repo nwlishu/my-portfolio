@@ -597,7 +597,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   max-width: 1024px;
   /* margin: 0 60px 35px; */
   /* padding: 20px 10px; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .card-list {

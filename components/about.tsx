@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-import image3 from "@/public/IMG_3248.jpg";
+import image3 from "@/public/IMG_0056.jpg";
 
 const About = () => {
   const fadeInAnimationsVariants = {
@@ -65,9 +65,8 @@ const About = () => {
         <div className="flex flex-col md:flex-row p-10 md:p-24 items-center">
           <motion.div className=" flex-1 justify-center ">
             <div className="container-about w-full">
-           
-                <div className="square w-full"></div>
-          
+              <div className="square w-full"></div>
+
               <Image
                 src={image3}
                 className="image-about profile-image border-2 border-gray-200 "

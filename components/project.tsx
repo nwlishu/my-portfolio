@@ -34,7 +34,7 @@ interface DetailItem {
   title: string;
   field: string;
   subtitle: string;
-  techStack: { [key: string]: techStackDetail };
+  techStack: Array<string>;
   detail: string;
   motivation: string;
   problem: string;
@@ -77,10 +77,7 @@ const detail_item: DetailItem[] = [
     title: "Personal Investment",
     field: "Web Development and Machine Learning",
     subtitle: "Web development",
-    techStack: {
-      frontend: { name: ["React.js", "Next.js"] },
-      backend: { name: [""] },
-    },
+    techStack: ["React.js", "Next.js"],
     detail:
       "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
     problem:
@@ -102,10 +99,7 @@ const detail_item: DetailItem[] = [
     subtitle:
       "Protecting the copyright image from diffusion model by using the adversarial example.",
 
-    techStack: {
-      frontend: { name: ["React.js", "Next.js"] },
-      backend: { name: [""] },
-    },
+    techStack: ["React.js", "Next.js"],
     detail:
       "Developed an adversarial method to protect copyright images from diffusion models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
     problem:
@@ -124,10 +118,13 @@ const detail_item: DetailItem[] = [
     field: "Web Development",
     subtitle:
       "A web-based application for real-time inventory tracking and management, built to improve operational efficiency for businesses",
-    techStack: {
-      frontend: { name: ["React.js", "Next.js"] },
-      backend: { name: [""] },
-    },
+    techStack: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "Oracle Database Could",
+    ],
     detail:
       "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
     problem:
@@ -254,7 +251,7 @@ const Project = () => {
               <>
                 <motion.div
                   className="cardContainer"
-                  style={{ scale, top: `calc(10em + ${index * 25}px)` }}
+                  // style={{ scale, top: `calc(10em + ${index * 25}px)` }}
                 >
                   <div
                     style={{
@@ -281,7 +278,16 @@ const Project = () => {
                           {images[index].desc}
                         </p>
                         <p className="font-extralight text-sm md:text-base">
-                          <u>Tech Stack:</u>
+                          {/* <u>Tech Stack:</u> */}
+                          {/* <ul>
+                            {item.techStack.map((itemTech, index) => {
+                              return (
+                                <>
+                                  <li>{itemTech}</li>
+                                </>
+                              );
+                            })}
+                          </ul> */}
                         </p>
                         <motion.div className="flex justify-center button-project">
                           <motion.button
@@ -491,6 +497,15 @@ const Project = () => {
             <p className="text-xl font-bold">Flow Diagram</p>
 
             <p className="text-xl font-bold">Tech Stack</p>
+            <ul className="list-disc list-inside ml-4">
+              {detail_item[currentIndex].techStack.map((itemTech, index) => {
+                return (
+                  <>
+                    <li>{itemTech}</li>
+                  </>
+                );
+              })}
+            </ul>
             {/* {detail_item[currentIndex].techStack.frontend.map((itemTech, index) => {
               return (
                 <>
@@ -521,7 +536,8 @@ const DragCloseDrawer: React.FC<DragCloseDrawerProps> = ({
 }) => {
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = "hidden";
+      console.log("model is opening");
+      document.body.style.overflow = "auto";
     } else {
       document.body.style.overflow = "auto";
     }
@@ -568,7 +584,7 @@ const DragCloseDrawer: React.FC<DragCloseDrawerProps> = ({
             transition={{
               ease: "easeInOut",
             }}
-            className="absolute bottom-0 h-[75vh] md:h-[90vh] w-full overflow-hidden rounded-t-3xl bg-white"
+            className="absolute bottom-0 h-[75vh] md:h-[90vh] w-full rounded-t-3xl bg-white"
             style={{ y }}
             drag="y"
             dragControls={controls}
