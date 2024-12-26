@@ -20,7 +20,8 @@ import inventory from "@/public/inventory_transparent.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { sortedLastIndex } from "lodash";
 import hero_inventory from "@/public/hero_inventory.png";
-
+import hero_ai from "@/public/ai-security.png";
+import hero_coming from "@/public/coming.png";
 interface ImageData {
   src: StaticImageData;
   title: string;
@@ -148,7 +149,7 @@ const detail_item: DetailItem[] = [
     motivation:
       "Empower creators and businesses to safeguard their artistic and commercial works from being misused or exploited without their consent.",
     color: "#FFFF",
-    hero: hero_inventory,
+    hero: hero_ai,
     idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
   },
   {
@@ -186,7 +187,7 @@ const detail_item: DetailItem[] = [
     motivation:
       "My motivation to create a personal investment tool stems from a desire to achieve financial independence. I want to be more in control of my finances, reduce uncertainty, and ensure that I am making smart financial decisions. By building a tool that tracks my investments and helps me visualize my financial goals, I can make more informed decisions and optimize the returns on my investment.",
     color: "#F5F5F7",
-    hero: hero_inventory,
+    hero: hero_coming,
     idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
   },
 ];
@@ -299,10 +300,7 @@ const Project = () => {
           {detail_item.map((item, index) => {
             return (
               <>
-                <motion.div
-                  className="cardContainer"
-                  // style={{ scale, top: `calc(10em + ${index * 25}px)` }}
-                >
+                <motion.div className="cardContainer">
                   <div
                     style={{
                       backgroundColor: item.color,
@@ -327,18 +325,7 @@ const Project = () => {
                         <p className="font-extralight text-sm md:text-base item-right-detail">
                           {images[index].desc}
                         </p>
-                        <p className="font-extralight text-sm md:text-base">
-                          {/* <u>Tech Stack:</u> */}
-                          {/* <ul>
-                            {item.techStack.map((itemTech, index) => {
-                              return (
-                                <>
-                                  <li>{itemTech}</li>
-                                </>
-                              );
-                            })}
-                          </ul> */}
-                        </p>
+                        <p className="font-extralight text-sm md:text-base"></p>
                         <motion.div className="flex justify-center button-project">
                           <motion.button
                             className="button-home px-5"
