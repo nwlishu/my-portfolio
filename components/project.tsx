@@ -335,7 +335,7 @@ const Project = () => {
 
   return (
     <>
-      <div className="project-section">
+      <div className="project-section p-10 ">
         <div className="">
           <motion.div
             variants={fadeInAnimationsVariants}
@@ -360,7 +360,7 @@ const Project = () => {
         </motion.p>
 
         <motion.div
-          className=" flex flex-column md:flex-row justify-start items-center mt-24"
+          className="flex flex-col md:flex-row justify-start items-center md:mt-24"
           variants={fadeInAnimationsVariants}
           initial="initial"
           whileInView="animate"
@@ -374,12 +374,12 @@ const Project = () => {
             animate="visible"
           >
             <Image
-              className="image-project w-56	md:w-96"
+              className="image-project w-96	md:w-96"
               src={images[activeIndex].src}
               alt={`Slider Image ${activeIndex + 1}`}
             />
           </motion.div>
-          <div className="flex-1" >
+          <div className="flex-1">
             <motion.h1
               className="text-4xl font-bold mb-6 "
               variants={textVarients}
