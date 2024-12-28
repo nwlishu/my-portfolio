@@ -22,6 +22,8 @@ import { sortedLastIndex } from "lodash";
 import hero_inventory from "@/public/hero_inventory.png";
 import hero_ai from "@/public/ai-security.png";
 import hero_coming from "@/public/coming.png";
+import previous from "@/public/previous.svg";
+import next from "@/public/next_new.svg";
 interface ImageData {
   src: StaticImageData;
   title: string;
@@ -232,6 +234,24 @@ interface ImageData {
 }
 
 const Project = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const [transitionDirection, setTransitionDirection] = useState("next");
+
+  const handleNext = () => {
+    setTransitionDirection("next");
+    setActiveIndex((prevIndex) =>
+      prevIndex === 2 ? prevIndex : prevIndex + 1
+    );
+  };
+
+  const handlePrevious = () => {
+    setTransitionDirection("previous");
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? prevIndex : prevIndex - 1
+    );
+  };
+
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -275,22 +295,249 @@ const Project = () => {
     setIsHovered(false);
   };
 
+  //defining text animation
+  const textVarients = {
+    hidden: {
+      opacity: 0,
+      x: transitionDirection === "next" ? 100 : -100,
+      transition: { duration: 0.5, ease: "easeInOut" },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const imageVarients = {
+    hidden: {
+      opacity: 0,
+      transition: { duration: 0.5, ease: "easeInOut" },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const textContainerVarient = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
   return (
     <>
       <div className="project-section">
-        <div className="stickyTitle">
+        <div className="">
           <motion.div
             variants={fadeInAnimationsVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
-            <p className=" text-5xl md:text-7xl font-bold md:leading-none mb-5 ">
-              My project
+            <p className="text-5xl md:text-7xl font-bold md:leading-none mb-5 ">
+              Projects
             </p>
           </motion.div>
         </div>
+        <motion.p
+          className="subtitle-project text-xl"
+          variants={fadeInAnimationsVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: false }}
+        >
+          Here are some of my most recent projects. You can click on the image
+          to find out more.
+        </motion.p>
+
         <motion.div
+          className=" flex flex-column md:flex-row justify-start items-center mt-24"
+          variants={fadeInAnimationsVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: false }}
+          key={activeIndex}
+        >
+          <motion.div
+            className="flex-1 flex justify-center items-center"
+            variants={imageVarients}
+            initial="hidden"
+            animate="visible"
+          >
+            <Image
+              className="image-project w-56	md:w-96"
+              src={images[activeIndex].src}
+              alt={`Slider Image ${activeIndex + 1}`}
+            />
+          </motion.div>
+          <div className="flex-1" >
+            <motion.h1
+              className="text-4xl font-bold mb-6 "
+              variants={textVarients}
+              initial="hidden"
+              animate="visible"
+            >
+              {detail_item[activeIndex].title}
+            </motion.h1>
+            <motion.p
+              // className="text-4xl font-bold mb-6 "
+              variants={textVarients}
+              initial="hidden"
+              animate="visible"
+              className="w-3/4 mb-6"
+            >
+              {detail_item[activeIndex].detail}
+            </motion.p>
+            <motion.button
+              className="button-home py-2 px-7 md:py-1 md:px-9  text-sm md:text-base "
+              whileHover={{ scale: 1.1 }}
+              onClick={() => setOpen(true)}
+            >
+              Detail
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* <motion.div
+          className="carouselContainer"
+          variants={fadeInAnimationsVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: false }}
+        >
+          <motion.div
+            className="contentContainer"
+            key={activeIndex}
+            variants={textContainerVarient}
+            initial="hidden"
+            animate="visible"
+          >
+            <div className="titleContainer">
+              <motion.h1
+                className="text-4xl font-bold mb-6 "
+                variants={textVarients}
+                initial="hidden"
+                animate="visible"
+              >
+                {detail_item[activeIndex].title}
+              </motion.h1>
+            </div>
+            <div className="descriptionContainer">
+              <motion.p
+                variants={textVarients}
+                initial="hidden"
+                animate="visible"
+              >
+                {detail_item[activeIndex].detail}
+              </motion.p>
+            </div>
+            <motion.div className="flex justify-center mt-4">
+              <motion.button
+                className="button-home py-2 px-7 md:py-1 md:px-9  text-sm md:text-base "
+                whileHover={{ scale: 1.1 }}
+                onClick={() => setOpen(true)}
+              >
+                Detail
+              </motion.button>
+            </motion.div>
+          </motion.div>
+          <div className="imageContainer">
+            <div>
+              <Image
+                className="image-project w-56	md:w-full"
+                src={images[activeIndex].src}
+                alt={`Slider Image ${activeIndex + 1}`}
+              />
+            </div>
+          </div>
+        </motion.div> */}
+        <motion.div
+          className="parentControls"
+          variants={textVarients}
+          initial="hidden"
+          animate="visible"
+        >
+          <div className="controls  ">
+            <button
+              className={activeIndex === 0 ? "disabled" : "previousContainer"}
+              onClick={handlePrevious}
+            >
+              <div>
+                <svg
+                  width="15"
+                  // height=""
+                  viewBox="0 0 6 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_227_24)">
+                    <path
+                      d="M5.32495 10.075L0.676951 5.49995L5.32495 0.924952"
+                      stroke={activeIndex === 0 ? "#A9A9A9" : "black"}
+                      stroke-width="1.1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_227_24">
+                      <rect
+                        width="6"
+                        height="11"
+                        fill="white"
+                        transform="matrix(-1 0 0 -1 6 11)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </button>
+            <button
+              className={activeIndex === 2 ? "disabled" : "nextContainer"}
+              onClick={handleNext}
+            >
+              <div>
+                <svg
+                  width="15"
+                  viewBox="0 0 6 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_227_24)">
+                    <path
+                      d="M0.675049 0.924952L5.32305 5.49995L0.675049 10.075"
+                      stroke={activeIndex === 2 ? "#A9A9A9" : "black"}
+                      stroke-width="1.1"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_227_24">
+                      <rect
+                        width="6"
+                        height="11"
+                        fill="white"
+                        transform="matrix(1 0 0 1 0 0)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </motion.div>
+
+        {/* <motion.div
           variants={fadeInAnimationsVariants1}
           initial="initial"
           whileInView="animate"
@@ -346,7 +593,7 @@ const Project = () => {
               </>
             );
           })}
-        </motion.div>
+        </motion.div> */}
 
         {/* <motion.div className="container-card">
           <div className="card-wrapper">
@@ -446,13 +693,13 @@ const Project = () => {
         {/* <div className="detail-project relative">
           <button
             className="absolute cursor-pointer z-10 left-0 top-1/2 transform h-[459px] rounded-xl  mx-1 -mt-[10px] -translate-y-1/2  text-white p-2 group"
-            onClick={prevSlide}
+            onClick={handlePrevious}
           >
             <ChevronLeft className="text-gray-400 group-hover:text-white" />
           </button>
           <motion.button
             className="absolute cursor-pointer z-10 right-0 top-1/2 transform h-[459px] rounded-xl  mx-1 -mt-[10px] -translate-y-1/2  text-white p-2 group"
-            onClick={nextSlide}
+            onClick={handleNext}
             // whileHover={{ scale: 1.1 }}
           >
             <ChevronRight className="text-gray-400 group-hover:text-white" />
@@ -461,20 +708,30 @@ const Project = () => {
             <div className="justify-self-end">
               <Image
                 className="	"
-                src={images[currentIndex].src}
-                alt={`Slider Image ${currentIndex + 1}`}
+                src={images[activeIndex].src}
+                alt={`Slider Image ${activeIndex + 1}`}
                 width={500}
                 height={500}
                 style={{ objectFit: "cover", width: "500px", height: "350px" }}
               />
             </div>
-            <div className="justify-self-start">
-              <h1 className="text-4xl font-bold mb-6 ">
-                {images[currentIndex].title}
-              </h1>
-              <h1 className="font-extralight text-base item-right-detail">
-                {images[currentIndex].desc}
-              </h1>
+            <div className="justify-self-start" key={activeIndex}>
+              <motion.h1
+                className="text-4xl font-bold mb-6 "
+                variants={textVarients}
+                initial="hidden"
+                animate="visible"
+              >
+                {images[activeIndex].title}
+              </motion.h1>
+              <motion.h1
+                className="font-extralight text-base item-right-detail"
+                variants={textVarients}
+                initial="hidden"
+                animate="visible"
+              >
+                {images[activeIndex].desc}
+              </motion.h1>
               <motion.div className="flex justify-center mt-4">
                 <motion.button
                   className="button-home px-5"
@@ -505,24 +762,24 @@ const Project = () => {
         <DragCloseDrawer open={open} setOpen={setOpen}>
           <div className="mx-auto max-w-4xl space-y-4 text-neutral-400">
             <h2 className="text-2xl md:text-7xl font-bold">
-              {detail_item[currentIndex].title}
+              {detail_item[activeIndex].title}
             </h2>
             <h3 className="text-base md:text-2xl font-semibold">
-              {detail_item[currentIndex].subtitle}
+              {detail_item[activeIndex].subtitle}
             </h3>
             <Image
               className="w-auto rounded-2xl"
-              src={detail_item[currentIndex].hero}
-              alt={`Slider Image ${currentIndex + 1}`}
+              src={detail_item[activeIndex].hero}
+              alt={`Slider Image ${activeIndex + 1}`}
             />
             <p className="text-xl font-bold">The Problem</p>
-            <p>{detail_item[currentIndex].problem}</p>
+            <p>{detail_item[activeIndex].problem}</p>
             {/* <p className="text-xl font-bold">The Idea</p>
             <p>{detail_item[currentIndex].idea}</p> */}
             <p className="text-xl font-bold">The Motivation</p>
-            <p>{detail_item[currentIndex].motivation}</p>
+            <p>{detail_item[activeIndex].motivation}</p>
             <p className="text-xl font-bold">The Goals</p>
-            {detail_item[currentIndex].goals.map((goalitem, index) => {
+            {detail_item[activeIndex].goals.map((goalitem, index) => {
               return (
                 <>
                   <ul className="list-disc list-inside ml-4">

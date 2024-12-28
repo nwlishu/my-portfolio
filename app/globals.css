@@ -186,7 +186,7 @@ body::-webkit-scrollbar {
   margin: auto;
   max-width: 1366px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   justify-content: center;
   margin-bottom: 5em;
@@ -713,4 +713,106 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   z-index: 2; /* Stacks the image above the square */
   width: 80%; /* Adjust to fit your design */
   height: auto; /* Maintain aspect ratio */
+}
+
+.subtitle-project {
+  width: 50%;
+}
+.carouselContainer {
+  display: grid;
+  height: 80%;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 vw;
+}
+.contentContainer {
+  .titleContainer {
+    padding: 0 0 2rem 0;
+  }
+  .descriptionContainer {
+    padding: 0 0 2rem 0;
+  }
+}
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  height: 30rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  /* position: absolute; */
+  right: 0;
+  bottom: 0;
+  width: 10rem;
+  z-index: 3;
+  transform: translateY(5rem);
+  
+}
+.parentControls{
+  width: 90%;
+  display: flex;
+  justify-content: end;
+}
+.previousContainer,
+.nextContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  height: 4.5rem;
+  width: 4.5rem;
+}
+
+.previousContainer:hover,
+.nextContainer:hover {
+  border: #A9A9A9 2px solid;
+  border-radius: 50%;
+}
+.disabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  height: 4.5rem;
+  width: 4.5rem;
+  cursor: initial;
+
+}
+@media screen and (max-width: 1199px) {
+  .carouselContainer {
+    padding: 0 5vw;
+  }
+}
+@media screen and (max-width: 950px) {
+  .carouselContainer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+
+    .contentContainer {
+      padding: 5rem 0 5rem 0;
+    }
+    .imageContainer {
+      padding: 5rem 0 5rem 0;
+
+      .controls {
+        padding: 0 0 4rem 0;
+      }
+    }
+  }
 }

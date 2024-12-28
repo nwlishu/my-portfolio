@@ -114,18 +114,13 @@ export default function Home() {
             <Expertise />
           </section>
         </motion.div> */}
-        <section id="Projects">
-          <div className="sentinel"></div>
-        </section>
+   
         <motion.div>
           <section id="Projects" className="second-back snap-always ">
             <Project />
           </section>
         </motion.div>
-        <section id="Projects">
-          <div className="sentinel"></div>
-        </section>
-
+ 
         <motion.div>
           <section id="Contact" className="second-back h-screen snap-always ">
             <Contact activeSection={activeSection} />
