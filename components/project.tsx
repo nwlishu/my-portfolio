@@ -349,7 +349,7 @@ const Project = () => {
           </motion.div>
         </div>
         <motion.p
-          className="subtitle-project text-xl"
+          className="text-sm md:text-xl font-extralight md:w-1/2"
           variants={fadeInAnimationsVariants}
           initial="initial"
           whileInView="animate"
@@ -374,14 +374,14 @@ const Project = () => {
             animate="visible"
           >
             <Image
-              className="image-project w-96	md:w-96"
+              className="image-project w-64	md:w-96"
               src={images[activeIndex].src}
               alt={`Slider Image ${activeIndex + 1}`}
             />
           </motion.div>
           <div className="flex-1">
             <motion.h1
-              className="text-4xl font-bold mb-6 "
+              className="text-xl md:text-4xl font-bold mb-6 "
               variants={textVarients}
               initial="hidden"
               animate="visible"
@@ -393,7 +393,7 @@ const Project = () => {
               variants={textVarients}
               initial="hidden"
               animate="visible"
-              className="w-3/4 mb-6"
+              className="w-full md:w-3/4 mb-6 text-sm md:text-base font-extralight"
             >
               {detail_item[activeIndex].detail}
             </motion.p>

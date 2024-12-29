@@ -752,7 +752,7 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   bottom: 0;
   width: 10rem;
   z-index: 3;
-  transform: translateY(5rem);
+  transform: translateY(2rem);
   
 }
 .parentControls{
