@@ -13,7 +13,7 @@ const Contact = (activeSection: any) => {
         y: 0,
         transition: {
           delay: 0.2,
-          ease: 'easeOut'
+          ease: "easeOut",
         },
       };
     },
@@ -30,7 +30,7 @@ const Contact = (activeSection: any) => {
         x: 0,
         transition: {
           delay: 0.5,
-          ease: 'easeOut'
+          ease: "easeOut",
         },
       };
     },
@@ -124,7 +124,7 @@ const Contact = (activeSection: any) => {
             </div> */}
             <div>
               <p className="font-bold mt-5 md:mt-14">Current Location</p>
-              <p className="font-light mt-1.5 md:mt-3.5">Taipei, Taiwan</p>
+              <p className="font-light mt-1.5 md:mt-3.5">Bangkok, Thailand</p>
             </div>
           </motion.div>
           {/* <motion.div className="form-right-contact flex-1 basis-3/5">
