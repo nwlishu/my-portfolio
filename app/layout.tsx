@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 const raleway = Raleway({ subsets: ["latin"] });
+import { Analytics } from "@vercel/analytics/react";
 import { AnimatePresence } from "framer-motion";
 import Footer from "@/components/footer";
 // import Navbar from "@/components/navbar";
@@ -46,7 +47,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={raleway.className}>{children}</body>
+      <body className={raleway.className}>
+        {children} <Analytics />
+      </body>
     </html>
   );
 }
