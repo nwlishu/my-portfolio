@@ -794,7 +794,7 @@ const Project = () => {
 
             <div className="flex justify-center">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-full ">
-                {Object.entries(detail_item[currentIndex].techStack).map(
+                {Object.entries(detail_item[activeIndex].techStack).map(
                   ([category, technologies]) => (
                     <div
                       key={category}
