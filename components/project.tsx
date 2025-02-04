@@ -823,10 +823,10 @@ const Project = () => {
                 )}
               </div>
             </div>
-            {detail_item[currentIndex].futureWork ? (
+            {detail_item[activeIndex].futureWork ? (
               <>
                 <p className="text-xl font-bold">Future Work</p>
-                <p>{detail_item[currentIndex].futureWork}</p>
+                <p>{detail_item[activeIndex].futureWork}</p>
               </>
             ) : (
               <></>
