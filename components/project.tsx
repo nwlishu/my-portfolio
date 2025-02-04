@@ -355,8 +355,8 @@ const Project = () => {
           whileInView="animate"
           viewport={{ once: false }}
         >
-          Here are some of my most recent projects. You can click on the image
-          to find out more.
+          Here are some of my most recent projects. You can click on the detail
+          button to find out more.
         </motion.p>
 
         <motion.div
