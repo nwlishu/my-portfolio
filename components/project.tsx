@@ -15,6 +15,7 @@ import { StaticImageData } from "next/image";
 import image3 from "@/public/pexels-stephen-leonardi-587681991-28133538.jpg";
 import ai from "@/public/ai_project_transparent.png";
 import finance from "@/public/finance_transparent.png";
+import box from "@/public/box_transparent.png";
 import useMeasure from "react-use-measure";
 import inventory from "@/public/inventory_transparent.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -74,9 +75,9 @@ const images: ImageData[] = [
     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
   },
   {
-    src: finance,
+    src: box,
     title: "The Box Packaging",
-    desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
+    desc: "Creating Seamless Packaging Solutions with a Modern, Responsive Online Presence.",
   },
   //     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
 ];
