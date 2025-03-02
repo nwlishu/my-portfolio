@@ -57,7 +57,7 @@ const Blog = () => {
               Blog
             </p>
           </motion.div>
-          <div className="mx-auto px-16">
+          <div className="mx-auto md:px-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cards_j.map((card) => (
                 <div
