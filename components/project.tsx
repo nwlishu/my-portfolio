@@ -22,6 +22,7 @@ import { sortedLastIndex } from "lodash";
 import hero_inventory from "@/public/hero_inventory.png";
 import hero_ai from "@/public/ai-security.png";
 import hero_coming from "@/public/coming.png";
+import hero_box from "@/public/hero_box.png";
 import previous from "@/public/previous.svg";
 import next from "@/public/next_new.svg";
 interface ImageData {
@@ -70,6 +71,11 @@ const images: ImageData[] = [
   {
     src: finance,
     title: "Personal Investment",
+    desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
+  },
+  {
+    src: finance,
+    title: "The Box Packaging",
     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments.",
   },
   //     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
@@ -192,6 +198,42 @@ const detail_item: DetailItem[] = [
     hero: hero_coming,
     idea: "An Inventory Management System (IMS) is a software application or set of tools designed to help businesses manage and track their inventory levels, sales, orders, and deliveries. It provides a systematic approach to monitor and control stock, ensuring that businesses have the right products in the right quantity at the right time. Here's a detailed description and overview of the idea behind such a system:",
   },
+  {
+    title: "The Box Packaging",
+    field: "Web Development and Machine Learning",
+    subtitle: "Web development",
+    techStack: {
+      "Front-end": [
+        // { img: "/devicon--react.png", name: "React.js" },
+        { img: "/devicon--nextjs.png", name: "Next.js" },
+        { img: "/devicon--tailwindcss.png", name: "tailwindcss" },
+      ],
+      "Back-end": [
+        { img: "/devicon--nodejs-wordmark.png", name: "Node.js" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+      Database: [
+        { img: "/devicon--oracle.png", name: "Oracle" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+      Server: [
+        { img: "/logos--vercel-icon.png", name: "Vercel" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+    },
+    detail:
+      "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+    problem:
+      "The box packaging company was facing challenges with an outdated website that didn’t provide an optimal user experience. The site wasn’t responsive, meaning it didn’t work well on mobile devices, and it lacked dynamic content that could engage visitors. Additionally, the website wasn’t optimized for SEO, meaning it wasn’t showing up as much in search engines, limiting new customer acquisition.",
+    goals: [
+      "The primary goal was to design and develop a website using the latest technology (Next.js) that would be fast, responsive, and dynamic. The site was optimized for search engines to improve visibility and attract more traffic. By deploying the site on AWS using Amplify and Lambda functions, we aimed to ensure smooth, efficient, and cost-effective operations. The end result: a beautiful and user-friendly website that elevates the brand, attracts more customers, and supports business growth.",
+    ],
+    motivation:
+      "The goal was to create a modern, responsive, and visually appealing website that would not only look great on any device but also be functional and engaging. The company wanted to stand out in the competitive packaging industry by having an online presence that highlighted their services and provided a seamless experience for customers. By integrating dynamic content and improving SEO, they aimed to attract more potential clients and showcase their innovative solutions in a better way.",
+    color: "#F5F5F7",
+    hero: hero_box,
+    idea: " The idea was to build a sleek, modern website that truly represents the box packaging company's innovation and professionalism. By leveraging Next.js for its speed and flexibility, we wanted to create a site that loads quickly and adapts to any device, providing a seamless experience for all users. Dynamic content was integrated to keep the site fresh and engaging, while smart SEO practices were implemented to help the website rank higher in search results. With AWS Amplify and Lambda functions, we ensured the website would be reliable, scalable, and cost-efficient, enabling the company to serve customers better and grow their online presence effortlessly.",
+  },
 ];
 
 const fadeInAnimationsVariants = {
@@ -241,7 +283,7 @@ const Project = () => {
   const handleNext = () => {
     setTransitionDirection("next");
     setActiveIndex((prevIndex) =>
-      prevIndex === 2 ? prevIndex : prevIndex + 1
+      prevIndex === 3 ? prevIndex : prevIndex + 1
     );
   };
 
@@ -252,48 +294,7 @@ const Project = () => {
     );
   };
 
-  const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
-
   const [open, setOpen] = useState(false);
-
-  // State to keep track of the current image index
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  console.log(currentIndex);
-  const targetScale = 1 - (detail_item.length - currentIndex) * 100;
-  const scale = useTransform(
-    scrollYProgress,
-    [currentIndex * 0.33, 1],
-    [1, targetScale]
-  );
-
-  // State to determine if the image is being hovered over
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-
-  // Function to show the previous slide
-  const prevSlide = (): void => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
-  };
-
-  // Function to show the next slide
-  const nextSlide = (): void => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  // Handle mouse over event
-  const handleMouseOver = (): void => {
-    setIsHovered(true);
-  };
-
-  // Handle mouse leave event
-  const handleMouseLeave = (): void => {
-    setIsHovered(false);
-  };
 
   //defining text animation
   const textVarients = {
@@ -323,13 +324,6 @@ const Project = () => {
         duration: 0.5,
         ease: "easeInOut",
       },
-    },
-  };
-
-  const textContainerVarient = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -502,7 +496,7 @@ const Project = () => {
               </div>
             </button>
             <button
-              className={activeIndex === 2 ? "disabled" : "nextContainer"}
+              className={activeIndex === 3 ? "disabled" : "nextContainer"}
               onClick={handleNext}
             >
               <div>
@@ -515,7 +509,7 @@ const Project = () => {
                   <g clip-path="url(#clip0_227_24)">
                     <path
                       d="M0.675049 0.924952L5.32305 5.49995L0.675049 10.075"
-                      stroke={activeIndex === 2 ? "#A9A9A9" : "black"}
+                      stroke={activeIndex === 3 ? "#A9A9A9" : "black"}
                       stroke-width="1.1"
                       stroke-linecap="round"
                       stroke-linejoin="round"
