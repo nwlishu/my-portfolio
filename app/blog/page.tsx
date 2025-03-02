@@ -31,7 +31,7 @@ const BlogSub = () => {
       <div className="p-16">
         <Button />
         <h1 className="text-8xl font-bold mt-8 mb-10">Blogs</h1>
-        <div className="mx-auto px-16">
+        <div className="mx-auto md:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
             {currentData.map((card) => (
               <Card
