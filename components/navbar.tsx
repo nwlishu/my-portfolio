@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Sidebar from "./sidebar";
@@ -112,6 +113,22 @@ const Navbar = (activeSection: any) => {
                 >
                   {" "}
                   Projects
+                </a>
+              </li>
+              <li className="li-nav">
+                <a
+                  className={`${
+                    activeSection.activeSection === "Blog" ? "underline" : ""
+                  }`}
+                  style={{
+                    color:
+                      activeSection.activeSection === "Blog"
+                        ? "#272727"
+                        : "#999999",
+                  }}
+                  href="#Blog"
+                >
+                  Blog
                 </a>
               </li>
               <li className="li-nav">

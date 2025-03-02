@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 const Link = ({ setOpen }: { setOpen: any }) => {
-  const items = ["Home", "About", "Projects", "Contact"];
+  const items = ["Home", "About", "Projects", "Blog", "Contact"];
   // const items = ["Home", "About", "Expertise", "Projects", "Contact"];
   const [isOpen, setIsOpen] = useState(true);
   // Parent variants

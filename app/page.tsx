@@ -13,20 +13,14 @@ import Expertise from "@/components/expertise";
 import Navbar from "@/components/navbar";
 import Project from "@/components/project";
 import About from "@/components/about";
+import Blog from "@/components/blog";
 // import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
-  // useEffect(() => {
-  //   const lenis = new Lenis();
-  //   function raf(time: number) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
-  //   requestAnimationFrame(raf);
-  // }, []);
+
 
   const [activeSection, setActiveSection] = useState("");
-  const sections = ["Home", "About", "Expertise", "Projects", "Contact"];
+  const sections = ["Home", "About", "Expertise", "Projects", "Blog", "Contact"];
   console.log(activeSection);
 
   // Smooth scroll to active section
@@ -82,9 +76,6 @@ export default function Home() {
     <div className=" h-screen initial-back">
       <motion.div
         className="h-screen second-back snap-y snap-mandatory"
-        // initial="hidden"
-        // animate="visible"
-        // variants={list}
         initial={{ height: "-20vh" }}
         animate={{ height: "100vh" }}
         transition={{
@@ -114,13 +105,19 @@ export default function Home() {
             <Expertise />
           </section>
         </motion.div> */}
-   
+
         <motion.div>
           <section id="Projects" className="second-back snap-always ">
             <Project />
           </section>
         </motion.div>
- 
+
+        <motion.div>
+          <section id="Blog" className="second-back snap-always ">
+            <Blog />
+          </section>
+        </motion.div>
+
         <motion.div>
           <section id="Contact" className="second-back h-screen snap-always ">
             <Contact activeSection={activeSection} />

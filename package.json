@@ -13,9 +13,11 @@
     "@heroicons/react": "^2.1.5",
     "@next/font": "^14.2.10",
     "@nextui-org/react": "^2.4.6",
+    "@radix-ui/react-slot": "^1.1.2",
     "@studio-freight/lenis": "^1.0.42",
     "@types/nodemailer": "^6.4.15",
     "@vercel/analytics": "^1.4.1",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.23",
     "gsap": "^3.12.5",
@@ -32,7 +34,8 @@
     "react-router-dom": "^6.26.2",
     "react-use-measure": "^2.1.1",
     "sass": "^1.77.8",
-    "tailwind-merge": "^2.4.0"
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
