@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({ id, title, subtitle, image }) => {
         alt=""
         width={500}
         height={500}
-        className="max-w-full max-h-80 object-cover rounded"
+        className="max-w-full max-h-90 object-cover rounded"
       />
       <h3 className="text-base font-bold mt-4">{title}</h3>
       <p className="text-gray-600 text-base flex-grow">{subtitle}</p>
