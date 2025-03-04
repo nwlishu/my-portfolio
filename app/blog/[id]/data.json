@@ -1,5 +1,25 @@
 [
   {
+    "id": "05",
+    "heroimage": "/38.png",
+    "title": "Exploring the Cultural Marvel: Chimei Museum in Taiwan",
+    "subtitle": "Chimei Museum",
+    "titleContent": "Exploring the Cultural Marvel: Chimei Museum in Taiwan",
+    "content": "I had heard so much about Chimei Museum and its beautiful palace-like design. As someone who loves art and history, I couldn’t resist visiting! Plus, I wanted to see the famous violins and explore something new in Tainan.<br/><br/>When I visited Chimei Museum in Tainan, I felt like I had stepped into a beautiful palace! Inside, I saw amazing paintings, rare violins, cool old swords, and even stuffed animals (not real ones!). If you love art, history, or just taking fun pictures, you’ll love it too!<br/><hr/><br/>我聽說過很多關於奇美博物館的故事，，它像一座美麗的宮殿。作為一個喜歡藝術和歷史的人，我忍不住想去看看！而且，我特別想看看那些著名的小提琴，並在台南探索新的地方。 <br/> 當我走進奇美博物館時，我感覺自己彷彿進入了一座華麗的宮殿！ 裡面有精美的畫作、珍貴的小提琴、酷炫的古代武器 ，甚至還有一些標本動物（當然不是真的！）。 如果你喜歡藝術、歷史，或者只是想拍漂亮的照片，你一定會喜歡這裡。",
+    "image": [
+      "/38.png",
+      "/39.png",
+      "/40.png",
+      "/41.png",
+      "/42.png",
+      "/43.png",
+      "/44.png",
+      "/45.png",
+      "/46.png",
+      "/47.png"
+    ]
+  },
+  {
     "id": "04",
     "heroimage": "/23.png",
     "title": "Malatang collection",
@@ -59,132 +79,6 @@
     "subtitle": "One software engineer, two suitcases, and absolutely no idea how to speak Chinese.",
     "titleContent": "10 Days, 30 Meals – My Quarantine Food Adventure in Taiwan!",
     "content": "Back in 2022, I made a bold move—I quit my job and flew to Taiwan to learn Chinese. Sounds adventurous, right? Well, before I could immerse myself in the language, I first had to immerse myself in... hotel quarantine. Ten days. Just me, my room, and three mystery meals delivered daily. </br></br> Now, I had heard all sorts of things about quarantine meals. Some people claimed they were great. Others? Different experiences. So, I decided to document my own experience—ten days of culinary surprises. I took a picture of every single meal, because if I had to go through this, the world should see it too. </br></br> <b>What's on the Menu?</b> Imagine opening a meal box every day like it's a mystery gift. Will it be a delightful discovery or an unexpected twist? Rice—check. A protein—check. Vegetables—check. Some uniquely interesting side dish—double check. Each meal came with an element of surprise, like playing food roulette. </br></br> Some meals were incredibly delicious. Others sparked curiosity. There were days when I felt like a king feasting and days when I embraced new flavors, expanding my culinary appreciation.</br></br> <b>Lessons Learned</b> <ol><li><b>Expect the unexpected:</b>One day it’s delicious braised chicken, the next it’s a fish dish full of character.</li></ol> </br></br>By the time my quarantine ended, I was free, filled with new culinary experiences, and definitely well-fed. If you’re ever in a similar situation, just remember: embrace the mystery, take pictures, and always have snacks on standby!",
-    "image": [
-      "/Day_2.png",
-      "/Day_1.png",
-      "/Day_3.png",
-      "/Day_4.png",
-      "/Day_5.png",
-      "/Day_6.png",
-      "/Day_7.png",
-      "/Day_8.png",
-      "/Day_9.png",
-      "/Day_10.png",
-      "/Day_11.png"
-    ]
-  },
-  {
-    "id": "05",
-    "heroimage": "/ontheair.png",
-    "title": "Second Blog Post",
-    "subtitle": "This is the second blog post.",
-    "titleContent": "",
-    "content": "",
-    "image": [
-      "/Day_2.png",
-      "/Day_1.png",
-      "/Day_3.png",
-      "/Day_4.png",
-      "/Day_5.png",
-      "/Day_6.png",
-      "/Day_7.png",
-      "/Day_8.png",
-      "/Day_9.png",
-      "/Day_10.png",
-      "/Day_11.png"
-    ]
-  },
-  {
-    "id": "07",
-    "heroimage": "/ontheair.png",
-    "title": "Second Blog Post",
-    "subtitle": "This is the second blog post.",
-    "titleContent": "",
-    "content": "",
-    "image": [
-      "/Day_2.png",
-      "/Day_1.png",
-      "/Day_3.png",
-      "/Day_4.png",
-      "/Day_5.png",
-      "/Day_6.png",
-      "/Day_7.png",
-      "/Day_8.png",
-      "/Day_9.png",
-      "/Day_10.png",
-      "/Day_11.png"
-    ]
-  },
-  {
-    "id": "08",
-    "heroimage": "/ontheair.png",
-    "title": "Second Blog Post",
-    "subtitle": "This is the second blog post.",
-    "titleContent": "",
-    "content": "",
-    "image": [
-      "/Day_2.png",
-      "/Day_1.png",
-      "/Day_3.png",
-      "/Day_4.png",
-      "/Day_5.png",
-      "/Day_6.png",
-      "/Day_7.png",
-      "/Day_8.png",
-      "/Day_9.png",
-      "/Day_10.png",
-      "/Day_11.png"
-    ]
-  },
-  {
-    "id": "09",
-    "heroimage": "/ontheair.png",
-    "title": "Second Blog Post",
-    "subtitle": "This is the second blog post.",
-    "titleContent": "",
-    "content": "",
-    "image": [
-      "/Day_2.png",
-      "/Day_1.png",
-      "/Day_3.png",
-      "/Day_4.png",
-      "/Day_5.png",
-      "/Day_6.png",
-      "/Day_7.png",
-      "/Day_8.png",
-      "/Day_9.png",
-      "/Day_10.png",
-      "/Day_11.png"
-    ]
-  },
-  {
-    "id": "10",
-    "heroimage": "/ontheair.png",
-    "title": "Second Blog Post",
-    "subtitle": "This is the second blog post.",
-    "titleContent": "",
-    "content": "",
-    "image": [
-      "/Day_2.png",
-      "/Day_1.png",
-      "/Day_3.png",
-      "/Day_4.png",
-      "/Day_5.png",
-      "/Day_6.png",
-      "/Day_7.png",
-      "/Day_8.png",
-      "/Day_9.png",
-      "/Day_10.png",
-      "/Day_11.png"
-    ]
-  },
-  {
-    "id": "11",
-    "heroimage": "/ontheair.png",
-    "title": "Second Blog Post",
-    "subtitle": "This is the second blog post.",
-    "titleContent": "",
-    "content": "",
     "image": [
       "/Day_2.png",
       "/Day_1.png",
