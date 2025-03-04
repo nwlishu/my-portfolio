@@ -4,6 +4,7 @@ import Image from "next/image";
 import Onairplan from "@/public/ontheair.png";
 import ID_2 from "@/public/id_2_1.png";
 import arrowRight from "@/public/ep--d-arrow-right.svg";
+import ID_4 from "@/public/23.png";
 import ID_3 from "@/public/13.png";
 import Link from "next/link";
 const Blog = () => {
@@ -16,9 +17,9 @@ const Blog = () => {
     },
     {
       id: "02",
-      title: `A classic Taiwanese breakfast`,
-      image: ID_2,
-      description: `One software engineer, two suitcases, and absolutely no idea how to speak Chinese.`,
+      title: `Malatang collection`,
+      image: ID_4,
+      description: `A Spicy Journey Through Taiwan’s Best Malatang Bowls`,
     },
     {
       id: "01",
