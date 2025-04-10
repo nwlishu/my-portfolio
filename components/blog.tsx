@@ -16,7 +16,7 @@ const Blog = () => {
       description: `Review of Yong He Soy Milk King (永和豆漿大王) in Taiwan.`,
     },
     {
-      id: "02",
+      id: "04",
       title: `Malatang collection`,
       image: ID_4,
       description: `A Spicy Journey Through Taiwan’s Best Malatang Bowls`,
