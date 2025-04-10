@@ -18,12 +18,15 @@ import finance from "@/public/finance_transparent.png";
 import box from "@/public/box_transparent.png";
 import useMeasure from "react-use-measure";
 import inventory from "@/public/inventory_transparent.png";
+import chemical from "@/public/chemical_transparent.png";
+
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { sortedLastIndex } from "lodash";
 import hero_inventory from "@/public/hero_inventory.png";
 import hero_ai from "@/public/ai-security.png";
 import hero_coming from "@/public/coming.png";
 import hero_box from "@/public/hero_box.png";
+import hero_chem from "@/public/hero_vchem.png";
 import previous from "@/public/previous.svg";
 import next from "@/public/next_new.svg";
 interface ImageData {
@@ -68,7 +71,6 @@ const images: ImageData[] = [
     title: "AI security",
     desc: "Developed an adversarial example method to protect copyright images from diffusion models.",
   },
-  //     desc: "Developed an adversarial method to protect copyright images from generative models by introducing subtle perturbations that prevent AI misuse while preserving visual quality.",
   {
     src: finance,
     title: "Personal Investment",
@@ -79,7 +81,11 @@ const images: ImageData[] = [
     title: "The Box Packaging",
     desc: "Creating Seamless Packaging Solutions with a Modern, Responsive Online Presence.",
   },
-  //     desc: "Developed a personal finance system to track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+  {
+    src: chemical,
+    title: "The Box Packaging",
+    desc: "Creating Seamless Packaging Solutions with a Modern, Responsive Online Presence.",
+  },
 ];
 
 const detail_item: DetailItem[] = [
@@ -235,6 +241,34 @@ const detail_item: DetailItem[] = [
     hero: hero_box,
     idea: " The idea was to build a sleek, modern website that truly represents the box packaging company's innovation and professionalism. By leveraging Next.js for its speed and flexibility, we wanted to create a site that loads quickly and adapts to any device, providing a seamless experience for all users. Dynamic content was integrated to keep the site fresh and engaging, while smart SEO practices were implemented to help the website rank higher in search results. With AWS Amplify and Lambda functions, we ensured the website would be reliable, scalable, and cost-efficient, enabling the company to serve customers better and grow their online presence effortlessly.",
   },
+  {
+    title: "The Chemical Importer",
+    field: "Web Development",
+    subtitle: "Web development",
+    techStack: {
+      "Front-end": [
+        // { img: "/devicon--react.png", name: "React.js" },
+        { img: "/devicon--nextjs.png", name: "Next.js" },
+        { img: "/devicon--tailwindcss.png", name: "tailwindcss" },
+      ],
+      Server: [
+        { img: "/devicon--firebase.png", name: "firebase" },
+        // { img: "/devicon--nextjs.png", name: "Next.js" },
+      ],
+    },
+    detail:
+      "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+    problem:
+      "V Chemical, a chemical importing company, lacked an online presence that could establish trust and credibility with potential clients. Without a professional and informative website, it was difficult for new customers to learn about the company’s services, verify its legitimacy, and feel confident doing business. In today’s digital age, not having a proper website was a major barrier to growth and client acquisition.",
+    goals: [
+      "The main objective was to create a professional, responsive, and visually appealing website that showcases V Chemical's services and builds credibility with prospective clients. By using the latest technology (Next.js), the site was designed to be fast, mobile-friendly, and optimized for search engines. Hosting the site on AWS using Amplify and Lambda functions ensured reliable and scalable performance, while also being cost-efficient for the business. The result is a trustworthy, modern online presence that enhances the company's reputation and attracts new business opportunities.",
+    ],
+    motivation:
+      "The motivation was to help V Chemical stand out in the competitive chemical import industry by establishing a strong digital presence. A well-designed website would make the company appear more reliable and professional to new customers, partners, and suppliers. The site needed to be informative, easy to navigate, and adaptable across all devices to reflect the company’s commitment to quality and innovation.",
+    color: "#F5F5F7",
+    hero: hero_chem,
+    idea: "The idea was to build a sleek, modern website that reflects V Chemical's professionalism and reliability as a chemical importer. Using Next.js allowed for fast performance and flexibility, while dynamic content kept the site engaging and up to date. By implementing SEO best practices, the site became easier to discover via search engines. Hosting with AWS Amplify and Lambda functions ensured the platform was scalable and efficient. Altogether, the site positions V Chemical as a trusted, forward-thinking business ready to serve a global client base.",
+  },
 ];
 
 const fadeInAnimationsVariants = {
@@ -284,7 +318,7 @@ const Project = () => {
   const handleNext = () => {
     setTransitionDirection("next");
     setActiveIndex((prevIndex) =>
-      prevIndex === 3 ? prevIndex : prevIndex + 1
+      prevIndex === detail_item.length - 1 ? prevIndex : prevIndex + 1
     );
   };
 
@@ -297,6 +331,7 @@ const Project = () => {
 
   const [open, setOpen] = useState(false);
 
+  console.log(detail_item);
   //defining text animation
   const textVarients = {
     hidden: {
@@ -497,7 +532,11 @@ const Project = () => {
               </div>
             </button>
             <button
-              className={activeIndex === 3 ? "disabled" : "nextContainer"}
+              className={
+                activeIndex === detail_item.length - 1
+                  ? "disabled"
+                  : "nextContainer"
+              }
               onClick={handleNext}
             >
               <div>
@@ -510,7 +549,11 @@ const Project = () => {
                   <g clip-path="url(#clip0_227_24)">
                     <path
                       d="M0.675049 0.924952L5.32305 5.49995L0.675049 10.075"
-                      stroke={activeIndex === 3 ? "#A9A9A9" : "black"}
+                      stroke={
+                        activeIndex === detail_item.length - 1
+                          ? "#A9A9A9"
+                          : "black"
+                      }
                       stroke-width="1.1"
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -531,226 +574,6 @@ const Project = () => {
             </button>
           </div>
         </motion.div>
-
-        {/* <motion.div
-          variants={fadeInAnimationsVariants1}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          ref={container}
-        >
-          {detail_item.map((item, index) => {
-            return (
-              <>
-                <motion.div className="cardContainer">
-                  <div
-                    style={{
-                      backgroundColor: item.color,
-                      border: `groove`,
-                    }}
-                    className="card"
-                  >
-                    <p className="flex justify-end p-2 md:p-3 font-extralight text-sm md:text-base">
-                      {item.field}
-                    </p>
-                    <hr />
-                    <div className="flex flex-col md:flex-row justify-evenly items-center p-5 md:p-10">
-                      <Image
-                        className="image-project w-56	md:w-96"
-                        src={images[index].src}
-                        alt={`Slider Image ${index + 1}`}
-                      />
-                      <div>
-                        <p className="text-xl md:text-3xl font-bold pt-5">
-                          {item.title}
-                        </p>
-                        <p className="font-extralight text-sm md:text-base item-right-detail">
-                          {images[index].desc}
-                        </p>
-                        <p className="font-extralight text-sm md:text-base"></p>
-                        <motion.div className="flex justify-center button-project">
-                          <motion.button
-                            className="button-home px-5"
-                            whileHover={{ scale: 1.1 }}
-                            onClick={() => {
-                              setOpen(true), setCurrentIndex(index);
-                            }}
-                          >
-                            <div className="button-home py-2 px-7 md:py-1 md:px-9  text-sm md:text-base ">
-                              Detail
-                            </div>
-                          </motion.button>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </>
-            );
-          })}
-        </motion.div> */}
-
-        {/* <motion.div className="container-card">
-          <div className="card-wrapper">
-            <ul className="card-list">
-              {detail_item.map((item, index) => {
-                return (
-                  <>
-                    <li className="card-item">
-                      <div className="contrainer-card-parent">
-                        <p className="text-sm flex justify-end p-1">
-                          Ai security
-                        </p>
-                        <hr />
-                        <div className="contrainer-card">
-                          <Image
-                            className="image-project	"
-                            src={images[index].src}
-                            alt={`Slider Image ${currentIndex + 1}`}
-                            width={350}
-                            height={290}
-                            style={{
-                              objectFit: "cover",
-                              width: "300px",
-                              height: "140px",
-                            }}
-                          />
-                          <p className="text-xl font-bold pt-5">
-                            {images[index].title}
-                          </p>
-                          <p className=" font-extralight text-sm item-right-detail">
-                            {images[index].desc}
-                          </p>
-                          <motion.div className="flex justify-center button-project">
-                            <motion.button
-                              className="button-home px-5"
-                              whileHover={{ scale: 1.1 }}
-                              onClick={() => setOpen(true)}
-                            >
-                              Detail
-                            </motion.button>
-                          </motion.div>
-                        </div>
-                      </div>
-                    </li>
-                  </>
-                );
-              })}
-            </ul>
-          </div>
-        </motion.div> */}
-
-        {/* <motion.div
-          className="container-card"
-          variants={fadeInAnimationsVariants}
-          initial="initial"
-          whileInView="animate"
-        >
-          {detail_item.map((item, index) => {
-            return (
-              <>
-                <div className="project-card flex flex-col md:flex-row ">
-                  <Image
-                    className="image-project	"
-                    src={images[index].src}
-                    alt={`Slider Image ${currentIndex + 1}`}
-                    width={350}
-                    height={290}
-                    style={{
-                      objectFit: "cover",
-                      width: "350px",
-                      height: "290px",
-                    }}
-                  />
-                  <div className="desc-project">
-                    <h1 className="text-4xl font-bold p-4">
-                      {images[index].title}
-                    </h1>
-                    <h1 className="p-4 font-extralight text-base item-right-detail">
-                      {images[index].desc}
-                    </h1>
-                    <motion.div className="flex justify-center button-project">
-                      <motion.button
-                        className="button-home px-5"
-                        whileHover={{ scale: 1.1 }}
-                        onClick={() => setOpen(true)}
-                      >
-                        Detail
-                      </motion.button>
-                    </motion.div>
-                  </div>
-                </div>
-              </>
-            );
-          })}
-        </motion.div> */}
-
-        {/* <div className="detail-project relative">
-          <button
-            className="absolute cursor-pointer z-10 left-0 top-1/2 transform h-[459px] rounded-xl  mx-1 -mt-[10px] -translate-y-1/2  text-white p-2 group"
-            onClick={handlePrevious}
-          >
-            <ChevronLeft className="text-gray-400 group-hover:text-white" />
-          </button>
-          <motion.button
-            className="absolute cursor-pointer z-10 right-0 top-1/2 transform h-[459px] rounded-xl  mx-1 -mt-[10px] -translate-y-1/2  text-white p-2 group"
-            onClick={handleNext}
-            // whileHover={{ scale: 1.1 }}
-          >
-            <ChevronRight className="text-gray-400 group-hover:text-white" />
-          </motion.button>
-          <div className="w-full grid-cols-1 md:grid items-center sub-detail-project relative">
-            <div className="justify-self-end">
-              <Image
-                className="	"
-                src={images[activeIndex].src}
-                alt={`Slider Image ${activeIndex + 1}`}
-                width={500}
-                height={500}
-                style={{ objectFit: "cover", width: "500px", height: "350px" }}
-              />
-            </div>
-            <div className="justify-self-start" key={activeIndex}>
-              <motion.h1
-                className="text-4xl font-bold mb-6 "
-                variants={textVarients}
-                initial="hidden"
-                animate="visible"
-              >
-                {images[activeIndex].title}
-              </motion.h1>
-              <motion.h1
-                className="font-extralight text-base item-right-detail"
-                variants={textVarients}
-                initial="hidden"
-                animate="visible"
-              >
-                {images[activeIndex].desc}
-              </motion.h1>
-              <motion.div className="flex justify-center mt-4">
-                <motion.button
-                  className="button-home px-5"
-                  whileHover={{ scale: 1.1 }}
-                  onClick={() => setOpen(true)}
-                >
-                  Detail
-                </motion.button>
-              </motion.div>
-            </div>
-          </div>
-          <div className="flex justify-center mt-12">
-            {images.map((_, index) => (
-              <div
-                key={index}
-                className={`h-1 w-10 mx-1 ${
-                  index === currentIndex
-                    ? "bg-[#FFB531] rounded-xl"
-                    : "bg-gray-300 rounded-xl"
-                } transition-all duration-500 ease-in-out`}
-              ></div>
-            ))}
-          </div>
-        </div> */}
       </div>
 
       <div>

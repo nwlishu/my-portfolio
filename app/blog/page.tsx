@@ -49,6 +49,7 @@ const BlogSub = () => {
               <PaginationItem>
                 <PaginationPrevious
                   href="#"
+                  className={`${currentPage === 1 ? ("text-gray"): ("text-black")}`}
                   onClick={(e) => {
                     e.preventDefault();
                     if (currentPage > 1) handlePageChange(currentPage - 1);
