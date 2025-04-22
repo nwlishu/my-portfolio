@@ -257,7 +257,7 @@ const detail_item: DetailItem[] = [
       ],
     },
     detail:
-      "Developed and managed a personal finance system to effectively track income, expenses, budgeting, and investments. Implemented financial planning strategies to optimize savings and ensure long-term financial stability.",
+      "Developed a custom website tailored for a chemical import business, with a focus on functionality, regulatory compliance, and user experience. The platform was designed to support the full import process — from showcasing chemical products to streamlining supplier communications and managing documentation.",
     problem:
       "V Chemical, a chemical importing company, lacked an online presence that could establish trust and credibility with potential clients. Without a professional and informative website, it was difficult for new customers to learn about the company’s services, verify its legitimacy, and feel confident doing business. In today’s digital age, not having a proper website was a major barrier to growth and client acquisition.",
     goals: [
