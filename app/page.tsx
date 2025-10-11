@@ -12,7 +12,7 @@ import Hero from "@/components/hero";
 import Expertise from "@/components/expertise";
 import Navbar from "@/components/navbar";
 import Project from "@/components/project";
-import Project1 from "@/components/project1";
+// import Project1 from "@/components/project1";
 import About from "@/components/about";
 import Blog from "@/components/blog";
 // import Lenis from "@studio-freight/lenis";
