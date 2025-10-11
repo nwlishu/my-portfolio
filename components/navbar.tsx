@@ -51,7 +51,7 @@ const Navbar = (activeSection: any) => {
 
   return (
     <>
-      <div className="navbar">
+      <div className="navbar p-4" >
         {/* sidebar */}
         <Sidebar />
         <div className="hidden md:block">

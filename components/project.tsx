@@ -86,6 +86,11 @@ const images: ImageData[] = [
     title: "The Box Packaging",
     desc: "Creating Seamless Packaging Solutions with a Modern, Responsive Online Presence.",
   },
+  // {
+  //   src: spttrading,
+  //   title: "The Box Packaging",
+  //   desc: "Creating Seamless Packaging Solutions with a Modern, Responsive Online Presence.",
+  // },
 ];
 
 const detail_item: DetailItem[] = [
@@ -365,7 +370,7 @@ const Project = () => {
 
   return (
     <>
-      <div className="project-section p-10 ">
+      <div className="project-section p-8 md:p-10 ">
         <div className="">
           <motion.div
             variants={fadeInAnimationsVariants}
@@ -496,7 +501,7 @@ const Project = () => {
           initial="hidden"
           animate="visible"
         >
-          <div className="controls  ">
+          <div className="controls   ">
             <button
               className={activeIndex === 0 ? "disabled" : "previousContainer"}
               onClick={handlePrevious}

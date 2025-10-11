@@ -12,15 +12,21 @@ import Hero from "@/components/hero";
 import Expertise from "@/components/expertise";
 import Navbar from "@/components/navbar";
 import Project from "@/components/project";
+import Project1 from "@/components/project1";
 import About from "@/components/about";
 import Blog from "@/components/blog";
 // import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
-
-
   const [activeSection, setActiveSection] = useState("");
-  const sections = ["Home", "About", "Expertise", "Projects", "Blog", "Contact"];
+  const sections = [
+    "Home",
+    "About",
+    "Expertise",
+    "Projects",
+    "Blog",
+    "Contact",
+  ];
   console.log(activeSection);
 
   // Smooth scroll to active section

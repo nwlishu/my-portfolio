@@ -65,7 +65,7 @@ body::-webkit-scrollbar {
   width: 100%;
   align-items: center;
   z-index: 30;
-  padding: 2.5rem;
+  /* padding: 2.5rem; */
   transition: top 0.1s ease-in;
   background-color: transparent;
 }
@@ -750,13 +750,13 @@ input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
   /* position: absolute; */
   right: 0;
   bottom: 0;
-  width: 10rem;
+  /* width: 10rem; */
   z-index: 3;
   transform: translateY(2rem);
   
 }
 .parentControls{
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: end;
 }
