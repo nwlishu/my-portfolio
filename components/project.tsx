@@ -336,7 +336,6 @@ const Project = () => {
 
   const [open, setOpen] = useState(false);
 
-  console.log(detail_item);
   //defining text animation
   const textVarients = {
     hidden: {
@@ -685,7 +684,6 @@ const DragCloseDrawer: React.FC<DragCloseDrawerProps> = ({
 }) => {
   useEffect(() => {
     if (open) {
-      console.log("model is opening");
       document.body.style.overflow = "auto";
     } else {
       document.body.style.overflow = "auto";

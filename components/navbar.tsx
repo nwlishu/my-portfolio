@@ -2,9 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import Sidebar from "./sidebar";
-import { animate, motion, MotionProps } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 
-const Navbar = (activeSection: any) => {
+interface NavbarProps {
+  activeSection: string;
+}
+
+const Navbar = ({ activeSection }: NavbarProps) => {
   const arrowAnimation: MotionProps = {
     style: { originX: "center", originY: 0 },
     whileInView: { y: [0, 24], scale: [1, 1.4] },
@@ -41,41 +45,34 @@ const Navbar = (activeSection: any) => {
 
   if (typeof window !== "undefined") {
     const location = window.location.toString().split("#")[0];
-    console.log(location);
     history.replaceState(
       null,
       "",
-      location + "#" + activeSection.activeSection
+      location + "#" + activeSection
     );
   }
 
   return (
     <>
-      <div className="navbar p-4" >
+      <nav className="navbar p-4" role="navigation" aria-label="Main navigation">
         {/* sidebar */}
         <Sidebar />
         <div className="hidden md:block">
-          {/* <motion.span
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Supaporn
-          </motion.span> */}
           <div>
             <ul className="ul-nav">
               <li className="li-nav">
                 <a
                   className={`${
-                    activeSection.activeSection === "Home" ? "underline" : ""
+                    activeSection === "Home" ? "underline" : ""
                   }`}
                   style={{
                     color:
-                      activeSection.activeSection === "Home"
+                      activeSection === "Home"
                         ? "#272727"
                         : "#999999",
                   }}
                   href="#Home"
+                  aria-current={activeSection === "Home" ? "page" : undefined}
                 >
                   Home
                 </a>
@@ -83,11 +80,11 @@ const Navbar = (activeSection: any) => {
               <li className="li-nav">
                 <a
                   className={`${
-                    activeSection.activeSection === "About" ? "underline" : ""
+                    activeSection === "About" ? "underline" : ""
                   }`}
                   style={{
                     color:
-                      activeSection.activeSection === "About"
+                      activeSection === "About"
                         ? "#272727"
                         : "#999999",
                   }}
@@ -99,13 +96,13 @@ const Navbar = (activeSection: any) => {
               <li className="li-nav">
                 <a
                   className={`${
-                    activeSection.activeSection === "Projects"
+                    activeSection === "Projects"
                       ? "underline"
                       : ""
                   }`}
                   style={{
                     color:
-                      activeSection.activeSection === "Projects"
+                      activeSection === "Projects"
                         ? "#272727"
                         : "#999999",
                   }}
@@ -118,11 +115,11 @@ const Navbar = (activeSection: any) => {
               <li className="li-nav">
                 <a
                   className={`${
-                    activeSection.activeSection === "Blog" ? "underline" : ""
+                    activeSection === "Blog" ? "underline" : ""
                   }`}
                   style={{
                     color:
-                      activeSection.activeSection === "Blog"
+                      activeSection === "Blog"
                         ? "#272727"
                         : "#999999",
                   }}
@@ -134,11 +131,11 @@ const Navbar = (activeSection: any) => {
               <li className="li-nav">
                 <a
                   className={`${
-                    activeSection.activeSection === "Contact" ? "underline" : ""
+                    activeSection === "Contact" ? "underline" : ""
                   }`}
                   style={{
                     color:
-                      activeSection.activeSection === "Contact"
+                      activeSection === "Contact"
                         ? "#272727"
                         : "#999999",
                   }}
@@ -150,64 +147,61 @@ const Navbar = (activeSection: any) => {
             </ul>
           </div>
         </div>
-      </div>
-      <motion.div className="social hidden md:block ">
+      </nav>
+      <motion.div className="social hidden md:block " role="complementary" aria-label="Social media links">
         <motion.div className="social-sub" variants={animateSocialVariants}>
-          <a href="https://github.com/nwlishu" target="_blank">
+          <a href="https://github.com/nwlishu" target="_blank" aria-label="Visit my GitHub profile" rel="noopener noreferrer">
             <Image
               src="/devicon--github.png"
               className="social-item"
               width={20}
               height={20}
-              alt="instagram"
+              alt="GitHub logo"
             />
           </a>
           <a
             href="https://www.linkedin.com/in/supaporn-nguanprasert-6b216921b/"
             target="_blank"
+            aria-label="Visit my LinkedIn profile"
+            rel="noopener noreferrer"
           >
             <Image
               src="/mdi--linkedin.png"
               className="social-item"
               width={20}
               height={20}
-              alt="instagram"
+              alt="LinkedIn logo"
             />
           </a>
-          <a href="mailto:supapornnguanprasert@gmail.com">
+          <a href="mailto:supapornnguanprasert@gmail.com" aria-label="Send me an email">
             <Image
               src="/mdi--gmail.png"
               className="social-item"
               width={20}
               height={20}
-              alt="instagram"
+              alt="Gmail logo"
             />
           </a>
-          <a href="https://www.youtube.com/@nwnguan" target="_blank">
+          <a href="https://www.youtube.com/@nwnguan" target="_blank" aria-label="Visit my YouTube channel" rel="noopener noreferrer">
             <Image
               src="/mdi--youtube.png"
               className="social-item"
               width={20}
               height={20}
-              alt="instagram"
+              alt="YouTube logo"
             />
           </a>
         </motion.div>
       </motion.div>
       <div
         className={`bottom-section ${
-          activeSection.activeSection === "Contact" ? "" : "line-scroll"
+          activeSection === "Contact" ? "" : "line-scroll"
         }`}
       >
         <motion.span
           {...arrowAnimation}
           className={`${
-            activeSection.activeSection === "Contact"
-              ? // "About" ||
-                // "Project" ||
-                // "Expertise"
-                "hidden"
-              : "block"
+            activeSection === "Contact" ? "hidden" : "block"
           }`}
         >
           <Image

@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 
-const Link = ({ setOpen }: { setOpen: any }) => {
+interface LinkProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Link = ({ setOpen }: LinkProps) => {
   const items = ["Home", "About", "Projects", "Blog", "Contact"];
   // const items = ["Home", "About", "Expertise", "Projects", "Contact"];
   const [isOpen, setIsOpen] = useState(true);
@@ -49,7 +53,7 @@ const Link = ({ setOpen }: { setOpen: any }) => {
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setOpen((prev: any) => !prev)}
+          onClick={() => setOpen((prev) => !prev)}
         >
           {item}
         </motion.a>

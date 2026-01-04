@@ -1,21 +1,12 @@
 "use client";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { Suspense, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-// import Project from "@/components/project1";
-// import Blog from "@/components/blog";
 import Contact from "@/components/contact";
-import Link from "next/link";
-import Loading from "@/components/loading";
 import Hero from "@/components/hero";
-import Expertise from "@/components/expertise";
 import Navbar from "@/components/navbar";
 import Project from "@/components/project";
-// import Project1 from "@/components/project1";
 import About from "@/components/about";
 import Blog from "@/components/blog";
-// import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
@@ -27,7 +18,6 @@ export default function Home() {
     "Blog",
     "Contact",
   ];
-  console.log(activeSection);
 
   // Smooth scroll to active section
   useEffect(() => {
@@ -60,25 +50,7 @@ export default function Home() {
     };
   }, []);
 
-  const list = {
-    visible: {
-      x: "0%",
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.3,
-        duration: 1,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      x: "-900vh", // Initial position
-    },
-  };
-
   return (
-    // <div className="snap-none md:snap-y snap-mandatory overflow-y-scroll h-screen initial-back">
-
     <div className=" h-screen initial-back">
       <motion.div
         className="h-screen second-back snap-y snap-mandatory"

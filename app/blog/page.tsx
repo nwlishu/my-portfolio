@@ -23,7 +23,23 @@ const BlogSub = () => {
   );
 
   const handlePageChange = (page: number) => {
+    // Validate page number is within bounds
+    if (page < 1 || page > totalPages) {
+      console.error(`Invalid page number: ${page}. Must be between 1 and ${totalPages}`);
+      return;
+    }
+
     setCurrentPage(page);
+
+    // Safely scroll to top (check if window is defined for SSR compatibility)
+    if (typeof window !== "undefined") {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (error) {
+        // Fallback for browsers that don't support smooth scrolling
+        window.scrollTo(0, 0);
+      }
+    }
   };
 
   return (
@@ -49,7 +65,7 @@ const BlogSub = () => {
               <PaginationItem>
                 <PaginationPrevious
                   href="#"
-                  className={`${currentPage === 1 ? ("text-gray"): ("text-black")}`}
+                  className={`${currentPage === 1 ? "pointer-events-none opacity-50" : ""}`}
                   onClick={(e) => {
                     e.preventDefault();
                     if (currentPage > 1) handlePageChange(currentPage - 1);
@@ -75,6 +91,7 @@ const BlogSub = () => {
               <PaginationItem>
                 <PaginationNext
                   href="#"
+                  className={`${currentPage === totalPages ? "pointer-events-none opacity-50" : ""}`}
                   onClick={(e) => {
                     e.preventDefault();
                     if (currentPage < totalPages)

@@ -1,12 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const ToggleButton = ({ setOpen }: { setOpen: any }) => {
+interface ToggleButtonProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ToggleButton = ({ setOpen }: ToggleButtonProps) => {
   return (
     <>
       <button
-        onClick={() => setOpen((prev: any) => !prev)}
+        onClick={() => setOpen((prev) => !prev)}
         className="button-sidebar"
+        aria-label="Toggle navigation menu"
+        aria-expanded={false}
       >
         <svg className="svg-hambur" width="23" height="23" viewBox="0 0 23 23">
           <motion.path
