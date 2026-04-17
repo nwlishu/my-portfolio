@@ -76,7 +76,7 @@ const hero = () => {
             animate={{ clipPath: "inset(0 0 0 0)" }}
             transition={{ duration: 0.3, ease: "easeOut", delay: 1.2 }}
           >
-            A Software Engineer
+            AI-Passionate Software Engineer
             <br />
           </motion.p>
           <motion.p
