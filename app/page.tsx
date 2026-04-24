@@ -90,11 +90,11 @@ export default function Home() {
           </section>
         </motion.div>
 
-        <motion.div>
+        {/* <motion.div>
           <section id="Blog" className="second-back snap-always ">
             <Blog />
           </section>
-        </motion.div>
+        </motion.div> */}
 
         <motion.div>
           <section id="Contact" className="second-back h-screen snap-always ">
