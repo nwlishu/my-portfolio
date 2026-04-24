@@ -71,12 +71,12 @@ export default function Home() {
         <section id="Home" className={`md:h-screen snap-always`}>
           <Hero />
         </section>
-
+{/* 
         <motion.div>
           <section id="About" className="second-back h-screen snap-always ">
             <About />
           </section>
-        </motion.div>
+        </motion.div> */}
 
         {/* <motion.div>
           <section id="Expertise" className="second-back h-screen ">
