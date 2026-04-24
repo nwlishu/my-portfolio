@@ -112,7 +112,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                   Projects
                 </a>
               </li>
-              <li className="li-nav">
+              {/* <li className="li-nav">
                 <a
                   className={`${
                     activeSection === "Blog" ? "underline" : ""
@@ -127,7 +127,7 @@ const Navbar = ({ activeSection }: NavbarProps) => {
                 >
                   Blog
                 </a>
-              </li>
+              </li> */}
               <li className="li-nav">
                 <a
                   className={`${
